@@ -34,12 +34,23 @@ HackerRank / GeeksForGeeks
 Si vous le souhaitez, vous pouvez participer et ajouter des questions ! 
 
 Pour cela, il faut respecter un format précis;
-
-**MORE PRECISION COMING SOON**
+```
+{
+  "id": "000",
+  "question": "...",
+  "questionImage": "...",
+  "answer": "...",
+  "answerImage": "...",
+  "tags": []
+}
+```
+ID doit être une valeur numérique avec leading 0 (on ne dépassera jamais 999 questions)    
+Les images sont optionnelles    
+tags doit être présent pour bien rattacher au deck/thème    
 
 
 ## Sources des questions
 
 A l'instar de l'interface graphique, les questions ne sont pas générées par IA. L'interface n'étant pas l'intérêt du projet.     
-Il existe une notion avec les questions qui sera mise à jour sur ce lien; **COMING SOON**        
+Il existe un Notion avec les questions qui sera mise à jour sur ce lien; **COMING SOON**        
 Ce Notion est en lecture seule et ne servira que a retrouve des questions plus facilement ou a suivre l'avance des questions mise a jours.  
