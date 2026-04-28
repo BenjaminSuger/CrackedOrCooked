@@ -1,0 +1,7 @@
+{
+	"id": "000",
+	"question": "Quelle est la différence entre git add et git commit ?",
+	"answer": "Git add permet de preparer les fichiers qu’on a modifier/creer a etre mis dans un commit (staged)
+Git Commit c’est la snapshot des modifications apportes", 
+	"tags": ["python"]
+}
