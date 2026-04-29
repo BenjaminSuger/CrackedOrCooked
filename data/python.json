@@ -1,8 +1,8 @@
 [
 	{
 		"id": "000",
-		"question": "Quelle est la différence entre git add et git commit ?",
-		"answer": "Git add permet de preparer les fichiers qu’on a modifier/creer a etre mis dans un commit (staged)\nGit Commit c’est la snapshot des modifications apportes", 
+		"question": "Qu’est-ce que la mutabilité en python ? Les strings sont-elles mutables ?",
+		"answer": "Un objet est mutable si on peut le modifier apres sa creation sinon il est immutable.\nUne string n’est pas mutable en python.\nA la maniere d’un char *str  = “”; qui n’est pas mutable (ce qui est surement l’implementation en Cpython)", 
 		"tags": ["python"]
 	}
 ]
