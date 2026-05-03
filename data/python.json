@@ -4,5 +4,12 @@
 		"question": "Qu’est-ce que la mutabilité en python ? Les strings sont-elles mutables ?",
 		"answer": "Un objet est mutable si on peut le modifier apres sa creation sinon il est immutable.\nUne string n’est pas mutable en python.\nA la maniere d’un char *str  = “”; qui n’est pas mutable (ce qui est surement l’implementation en Cpython)", 
 		"tags": ["python"]
+	},
+	{
+	  "id": "001",
+	  "question": "Quel est la complexite algorithmique du code en commentaire et du code non commente ?",
+	  "questionImage": "images/python/python001.png",
+	  "answer": "La premiere version est O(n^2) on est sur une nested loop. On parcours tout les last_names pour chaque first name.\nLa deuxieme version par contre est sequentiel , si on voit qu’on a pas le prenom on sait qu’on aura jamais de condition pour faire le nom complet.\nLe in en python, fait un parcours classique donc on va etre sur du O(n) mais si on trouve le first_name on va devoir aller chercher le last_name donc on va etre sur du O(n + m)",
+	  "tags": ["python"]
 	}
 ]

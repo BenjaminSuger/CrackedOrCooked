@@ -6,6 +6,12 @@ let progress = JSON.parse(localStorage.getItem("progress")) || {};
 
 let selectedDecks = new Set();
 
+let sessionStats = {
+  cracked: 0,
+  cooked: 0,
+  total: 0
+};
+
 init();
 
 async function init() {
@@ -140,12 +146,32 @@ function showAnswer() {
 function markKnown(known) {
   const card = queue[currentIndex];
 
+  if (known) sessionStats.cracked++;
+  else sessionStats.cooked++;
+
+  sessionStats.total++;
+
   progress[card.id] = known ? "known" : "unknown";
 
   currentIndex++;
 
   saveState();
   showCard();
+  updateStats();
+}
+
+function updateStats() {
+  const stats = document.getElementById("stats");
+
+  const total = sessionStats.total;
+  const cracked = sessionStats.cracked;
+  const cooked = sessionStats.cooked;
+
+  const crackedPct = total ? Math.round((cracked / total) * 100) : 0;
+  const cookedPct = total ? Math.round((cooked / total) * 100) : 0;
+
+  stats.textContent =
+    `🔥 Cracked: ${cracked} (${crackedPct}%) | ☠️ Cooked: ${cooked} (${cookedPct}%)`;
 }
 
 function saveState() {
@@ -162,6 +188,13 @@ function resetProgress() {
 
   currentIndex = 0;
   progress = {};
+
+  sessionStats = {
+	  cracked: 0,
+	  cooked: 0,
+	  total: 0
+	};
+  updateStats();
 
   filterAndStart();
 }

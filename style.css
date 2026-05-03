@@ -15,8 +15,9 @@ h1 {
 }
 
 #card-container {
+  display: flex;
+  justify-content: center;
   margin: 40px auto;
-  width: 320px;
 }
 
 .card {
@@ -25,6 +26,7 @@ h1 {
   padding: 20px;
   min-height: 180px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  width: min(800px, 90vw);
 }
 
 .question {
@@ -101,6 +103,16 @@ body {
   display: block;
   margin-bottom: 8px;
   cursor: pointer;
+}
+
+#stats {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #1e293b;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 14px;
 }
 
 #main {
