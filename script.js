@@ -48,26 +48,32 @@ function showCard() {
     `${currentIndex + 1} / ${queue.length}`;
 
   document.getElementById("card-container").innerHTML = `
-    <div class="card" onclick="flipCard(this)">
-      <div class="card-inner">
-        
-        <div class="card-front">
-          <div>${card.question}</div>
-          ${card.questionImage ? `<img src="${card.questionImage}" />` : ""}
-        </div>
-
-        <div class="card-back">
-          <div>${card.answer}</div>
-          ${card.answerImage ? `<img src="${card.answerImage}" />` : ""}
-        </div>
-
+    <div class="card">
+      <div class="question">
+        ${card.question}
       </div>
+
+      ${card.questionImage ? `<img src="${card.questionImage}" />` : ""}
+
+      <div class="answer" id="answer">
+        ${card.answer.replace(/\n/g, "<br>")}
+      </div>
+
+      ${card.answerImage ? `<img src="${card.answerImage}" class="answer-img" />` : ""}
     </div>
   `;
 }
 
-function flipCard(el) {
-  el.classList.toggle("flipped");
+function showAnswer() {
+  const answer = document.getElementById("answer");
+  if (answer) {
+    answer.style.display = "block";
+  }
+
+  const img = document.querySelector(".answer-img");
+  if (img) {
+    img.style.display = "block";
+  }
 }
 
 function markKnown(known) {

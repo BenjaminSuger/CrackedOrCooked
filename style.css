@@ -5,9 +5,13 @@ body {
   text-align: center;
 }
 
+h1 {
+  margin-top: 20px;
+}
+
 /* progression */
 #progress {
-  margin-top: 20px;
+  margin-top: 10px;
   opacity: 0.8;
 }
 
@@ -15,51 +19,40 @@ body {
 #card-container {
   margin: 40px auto;
   width: 320px;
-  perspective: 1000px;
 }
 
 .card {
-  width: 100%;
-  height: 220px;
-  cursor: pointer;
-}
-
-.card-inner {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transition: transform 0.5s;
-  transform-style: preserve-3d;
-}
-
-.card.flipped .card-inner {
-  transform: rotateY(180deg);
-}
-
-.card-front,
-.card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
   background: #1e293b;
   border-radius: 12px;
   padding: 20px;
-  backface-visibility: hidden;
+  min-height: 180px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
-.card-back {
-  transform: rotateY(180deg);
-  background: #334155;
+.question {
+  font-size: 18px;
+  font-weight: normal;
 }
 
-/* images */
+.answer {
+  display: none;
+  margin-top: 15px;
+  color: #38bdf8;
+  max-height: 200px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
 img {
   max-width: 100%;
-  max-height: 120px;
+  max-height: 150px;
   margin-top: 10px;
   border-radius: 8px;
   object-fit: contain;
+}
+
+.answer-img {
+  display: none;
 }
 
 /* boutons */
@@ -72,14 +65,19 @@ img {
 }
 
 #buttons button:nth-child(1) {
-  background: #22c55e;
+  background: #64748b;
 }
 
 #buttons button:nth-child(2) {
+  background: #22c55e;
+}
+
+#buttons button:nth-child(3) {
   background: #ef4444;
 }
 
-/* reset button */
+
+
 #reset-btn {
   position: fixed;
   bottom: 20px;
