@@ -5,35 +5,64 @@ body {
   text-align: center;
 }
 
-h1 {
+/* progression */
+#progress {
   margin-top: 20px;
+  opacity: 0.8;
 }
 
+/* carte */
 #card-container {
   margin: 40px auto;
   width: 320px;
+  perspective: 1000px;
 }
 
 .card {
+  width: 100%;
+  height: 220px;
+  cursor: pointer;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   background: #1e293b;
   border-radius: 12px;
   padding: 20px;
-  min-height: 180px;
+  backface-visibility: hidden;
   box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
-.answer {
-  display: none;
-  margin-top: 15px;
-  color: #38bdf8;
+.card-back {
+  transform: rotateY(180deg);
+  background: #334155;
 }
 
+/* images */
 img {
   max-width: 100%;
+  max-height: 120px;
   margin-top: 10px;
   border-radius: 8px;
+  object-fit: contain;
 }
 
+/* boutons */
 #buttons button {
   margin: 10px;
   padding: 10px 14px;
@@ -43,18 +72,23 @@ img {
 }
 
 #buttons button:nth-child(1) {
-  background: #64748b;
-}
-
-#buttons button:nth-child(2) {
   background: #22c55e;
 }
 
-#buttons button:nth-child(3) {
+#buttons button:nth-child(2) {
   background: #ef4444;
 }
 
-#progress {
-  margin-top: 20px;
-  opacity: 0.8;
+/* reset button */
+#reset-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #64748b;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  font-size: 18px;
 }
