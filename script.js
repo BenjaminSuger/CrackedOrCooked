@@ -20,12 +20,14 @@ async function init() {
 }
 
 function setupQueue() {
-  queue = allCards.sort(() => Math.random() - 0.5);
+  queue = [...allCards].sort(() => Math.random() - 0.5);
 }
 
 function loadState() {
   const savedIndex = localStorage.getItem("currentIndex");
-  if (savedIndex) currentIndex = parseInt(savedIndex);
+  if (savedIndex !== null) {
+    currentIndex = parseInt(savedIndex);
+  }
 }
 
 function saveState() {
@@ -47,15 +49,31 @@ function showCard() {
 
   document.getElementById("card-container").innerHTML = `
     <div class="card">
-      <div>${card.question}</div>
-      ${card.image ? `<img src="${card.image}" />` : ""}
-      <div class="answer" id="answer">${card.answer}</div>
+      <div class="question">
+        ${card.question}
+      </div>
+
+      ${card.questionImage ? `<img src="${card.questionImage}" />` : ""}
+
+      <div class="answer" id="answer">
+        ${card.answer.replace(/\n/g, "<br>")}
+      </div>
+
+      ${card.answerImage ? `<img src="${card.answerImage}" class="answer-img" />` : ""}
     </div>
   `;
 }
 
 function showAnswer() {
-  document.getElementById("answer").style.display = "block";
+  const answer = document.getElementById("answer");
+  if (answer) {
+    answer.style.display = "block";
+  }
+
+  const img = document.querySelector(".answer-img");
+  if (img) {
+    img.style.display = "block";
+  }
 }
 
 function markKnown(known) {
@@ -65,5 +83,18 @@ function markKnown(known) {
 
   currentIndex++;
   saveState();
+  showCard();
+}
+
+function resetProgress() {
+  const confirmReset = confirm("Reset progression ?");
+  if (!confirmReset) return;
+
+  localStorage.removeItem("currentIndex");
+  localStorage.removeItem("progress");
+
+  currentIndex = 0;
+  progress = {};
+  setupQueue();
   showCard();
 }
