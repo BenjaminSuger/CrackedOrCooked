@@ -8,19 +8,25 @@
 
 <body>
 
-<h1>Cracked Or Cooked ?</h1>
+<div id="sidebar"></div>
 
-<div id="progress"></div>
+<div id="main">
 
-<div id="card-container"></div>
+  <h1>Cracked Or Cooked ?</h1>
 
-<div id="buttons">
-  <button onclick="showAnswer()">Voir réponse</button>
-  <button onclick="markKnown(true)">✅ Cracked</button>
-  <button onclick="markKnown(false)">☠️ Cooked</button>
+  <div id="progress"></div>
+
+  <div id="card-container"></div>
+
+  <div id="buttons">
+    <button onclick="showAnswer()">Voir réponse</button>
+    <button onclick="markKnown(true)">✅ Cracked</button>
+    <button onclick="markKnown(false)">☠️ Cooked</button>
+  </div>
+
+  <button id="reset-btn" onclick="resetProgress()">↺</button>
+
 </div>
-
-<button id="reset-btn" onclick="resetProgress()">↺</button>
 
 <script src="script.js"></script>
 

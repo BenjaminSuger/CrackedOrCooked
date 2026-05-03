@@ -1,4 +1,4 @@
 [
-	"python.json",
-	"git.json"
+	{ "name": "Python", "file": "python.json" },
+	{ "name": "Git", "file": "git.json" }
 ]
