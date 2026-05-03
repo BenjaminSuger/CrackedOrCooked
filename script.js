@@ -20,12 +20,14 @@ async function init() {
 }
 
 function setupQueue() {
-  queue = allCards.sort(() => Math.random() - 0.5);
+  queue = [...allCards].sort(() => Math.random() - 0.5);
 }
 
 function loadState() {
   const savedIndex = localStorage.getItem("currentIndex");
-  if (savedIndex) currentIndex = parseInt(savedIndex);
+  if (savedIndex !== null) {
+    currentIndex = parseInt(savedIndex);
+  }
 }
 
 function saveState() {
@@ -46,16 +48,26 @@ function showCard() {
     `${currentIndex + 1} / ${queue.length}`;
 
   document.getElementById("card-container").innerHTML = `
-    <div class="card">
-      <div>${card.question}</div>
-      ${card.image ? `<img src="${card.image}" />` : ""}
-      <div class="answer" id="answer">${card.answer}</div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="card-inner">
+        
+        <div class="card-front">
+          <div>${card.question}</div>
+          ${card.questionImage ? `<img src="${card.questionImage}" />` : ""}
+        </div>
+
+        <div class="card-back">
+          <div>${card.answer}</div>
+          ${card.answerImage ? `<img src="${card.answerImage}" />` : ""}
+        </div>
+
+      </div>
     </div>
   `;
 }
 
-function showAnswer() {
-  document.getElementById("answer").style.display = "block";
+function flipCard(el) {
+  el.classList.toggle("flipped");
 }
 
 function markKnown(known) {
@@ -65,5 +77,18 @@ function markKnown(known) {
 
   currentIndex++;
   saveState();
+  showCard();
+}
+
+function resetProgress() {
+  const confirmReset = confirm("Reset progression ?");
+  if (!confirmReset) return;
+
+  localStorage.removeItem("currentIndex");
+  localStorage.removeItem("progress");
+
+  currentIndex = 0;
+  progress = {};
+  setupQueue();
   showCard();
 }
