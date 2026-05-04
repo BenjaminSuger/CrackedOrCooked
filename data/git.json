@@ -3,6 +3,66 @@
 		"id": "000",
 		"question": "Quelle est la différence entre git add et git commit ?",
 		"answer": "Git add permet de preparer les fichiers qu’on a modifier/creer a etre mis dans un commit (staged)\nGit Commit c’est la snapshot des modifications apportes", 
-		"tags": ["python"]
-	}
+		"tags": ["git"]
+	},
+	{
+		"id": "001",
+	    	"question": "Comment voir les modifications non commit ?",
+	    	"answer": "Avec git status on peut suivre les modifications non staged ou non commit",
+	    	"tags": ["git"]
+	  },
+	  {
+    		"id": "002",
+		"question": "Quelle est la différence entre un repo local et distant ?",
+	    	"answer": "Le repo local c’est notre version sur notre ordinateur. Le repo distant c’est la ou il y a tout Potentiellement ily a des differences en local on a pas toutes les branches des repos, on a pas toutes les branches, on a normalement notre travail et potentiellement la main / dev branche. Tandis que sur le repo distant on a tout ce qui a etait mis par les differents utilisateurs",
+	    	"tags": ["git"]
+	  },
+	  {
+		  "id": "003",
+		  "question": "Que fait git push ?",
+		  "answer": "Git push permet d’envoyer son travail sur le repo a distance",
+		  "tags": ["git"]
+	  },
+	  {
+		  "id": "004",
+		  "question": "Qu’est ce que origin dans git ?",
+		  "answer": "origin ⇒ c’est une alias du repo a distance\\nc’est le nom par defaut quand on va clone, mais on pourrait totalement le changer grace a la commande git remote.\\nCa permet de ne pas a avoir a a taper toutes l’adresses url complete.\\nOn peut avoir plusieurs remote, par exemple celui de votre github et celui que vous ajouter a la fin de votre projet 42 sur la vogosphere.\\nAttention origin et origin/main c’est different.\\norigin/main c’est le suivi, comprendre le marque page de la ou en etait le main sur le repo a distance, la derniere fois que vous avez “regarder” (comprendre par la ou vous avez fait un pull ou un fetch).\\nDonc origin/main n’est pas la situation actuelle du serveur mais de la derniere fois que vous avez vu ou en etait le serveur.",
+		  "tags": ["git"]
+	  },
+	  {
+		  "id": "005",
+		  "question": "Qu’est-ce que Git et à quoi sert-il ? Quelle est la différence entre Git et GitHub ?",
+		  "answer": "Git c’est un outil de controle de version. L’outil permet de garder l’historique des modifications d’un projet.\\nL’outil nous permet de revenir en arriere, de travailler sur plusieurs branches,\\n de travailler a plusieurs sur le meme projet sans probleme.\\nGithub c’est simplement un service d’hebergement de projet git. On peut faire des choses en plus quand on travail a plusieurs, pull requests, action etc….",
+		  "tags": ["git"]
+	  },
+	  {
+		  "id": "006",
+		  "question": "Qu’est-ce qu’un repository (repo) ?",
+		  "answer": "C’est l’endroit ou on retrouve tout nos fichiers de notre projets et il contient aussi l’ensemble de l’historique des modifications du projet.\\nIl y a le repo local ⇒ celui sur notre ordinateur\\nIl y a le repo remote ⇒ c’est celui qui est sur un serveur, le cloud, github, gitlab c’est celui qui est partage avec tout le monde",
+		  "tags": ["git"]
+	  },
+	  {
+		  "id": "007",
+		  "question": "Qu’est ce qu’un commit ?",
+		  "answer": "Un commit c’est ce qu’on retrouve dans le repo. C’est des snapshot, capture d’image, des modifications qui ont etait apporter a nos fichiers.\\nSur le commit on retrouve donc modification mais aussi un message et un auteur\\n\\nLe flux de travail pour faire un commit;\\ngit add <all or specific file> ⇒ on est dans le staging area.\\ngit commit ⇒ on est dans le local repo\\ngit push ⇒ la on va envoyer sur le serveur",
+		  "tags": ["git"]
+	  },
+	  {
+		  "id": "008",
+		  "question": "À quoi sert git log ?",
+		  "answer": "Git log permet de voir l’historique des modifications, l’historique donc des commits d’une branche.\\nOn peut utiliser un petit ajout pour avoir une version plus courte et un peu digeste; --online\\nOn peut aussi avoir un graph avec l’option --graph",
+		  "tags": ["git"]
+	  },
+	  {
+		  "id": "009",
+		  "question": "À quoi sert git status ?",
+		  "answer": "Git status, vous donne l’information sur ce qui est actuellement suivi, non suivi, staged dans votre repo.\\nSi vous etes entrain de faire des rebase, merge et autres avec conflits ca va donc vous donner exactement la liste des fichiers a voir.",
+		  "tags": ["git"]
+	  },
+	  {
+		  "id": "010",
+		  "question": "Que fait la commande git clone ?",
+		  "answer": "Git clone permet de copier un repository remote en local.  Il cree aussi un lien entre le repo distant (remote) et nous en local.\\nPar defaut sans precision il va prendre la branche main / origin\\navec l’option -b on peut preciser la branche exact qu’on souhaite.",
+		  "tags": ["git"]
+	  }
 ]

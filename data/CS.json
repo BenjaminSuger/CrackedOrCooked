@@ -1,0 +1,38 @@
+[
+	{
+		"id": "000",
+	   	"question": "c’est quoi les 4 pilliers de l’oriente objet ?",
+		"answer": "Les 4 pilliers de l’oriente objet c’est ;\\n* Encapsulation\\n* Heritage\\n* Abstraction\\n* Polymorphisme",
+		"tags": ["CS"]
+	},
+	{
+		"id": "001",
+		"question": "C’est quoi l’encapsulation ? (1 des pilliers de l’oriente objet, en une phrase)",
+		"answer": "Il s’agit de mettre les donnees au sein d’un objet (une class) avec ces comportements (methodes / fonctions).",
+	    	"tags": ["CS"]
+	},
+	{
+		"id": "002",
+		"question": "C’est quoi l’heritage? (1 des pilliers de l’oriente objet, en une phrase)",
+    		"answer": "C’est la possibilite de cree une classe qui herite d’une autre, c’est a dire qu’elle obtient les possibilites de la classe parent (attributs/methodes).",
+    		"tags": ["CS"]
+	},
+	{
+		"id": "003",
+		"question": "C’est quoi l’abstraction ? (1 des pilliers de l’oriente objet, en une phrase)",
+    "answer": "C’est le fait de cacher le mecanisme pour l’utilisateur de notre objet",
+    		"tags": ["CS"]
+	},
+	{
+		"id": "004",
+    		"question": "C’est quoi le polymorphisme ? (1 des pilliers de l’oriente objet, en une phrase)",
+    		"answer": "C’est la capacite d’avoir plusieurs formes, pour un objet, une methode et autres. Pour que ca puisse s’adapter",
+    		"tags": ["CS"]
+	},
+	{
+    		"id": "005",
+    		"question": "C’est quoi la notation Big O ?",
+    		"answer": "La notation Big O mesure la croissance théorique de la complexité d’un algorithme en fonction de la taille de l’entrée (que l’on nomme n).\\nLorsque l’on parle de la croissance, on parle de la croissance en terme de temps et de mémoire.\\nEn anglais on parle de Time and Space complexity.",
+    		"tags": ["CS"]
+	}
+]
