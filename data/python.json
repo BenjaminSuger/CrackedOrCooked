@@ -21,120 +21,120 @@
 	{
 		"id": "003",
 		"question": "Comment on fait pour representer en binaire une valeur en python ?",
-		"answer": "il existe une fonction bin()\\npar contre pour une lettre il faut faire un travail au prealable",
+		"answer": "il existe une fonction bin()\npar contre pour une lettre il faut faire un travail au prealable",
     		"tags": ["python"]
 	},
 	{
 		"id": "004",
 		"question": "Pour concatener 2 strings en python quel est la meilleur solution (PEP friendly) ?",
-		"answer": "Il n’y a pas de append() en python. Les strings sont “immutable”. Pourquoi ? parce qu’on fonctionne comme en C avec des char *\\nMais du coup on peut se retrouver a faire ;\\nword += other_word\\nCe qui est acceptable si on le fait qu’une fois mais pas si on le fait plein de fois.\\nLe probleme c’est qu’en arriere plan, il se passe des choses pas tres optimise si on commence a faire ca dans une boucle(reallocation).\\nMais du coup la strategie est autre. Au lieu de concatener au fur et a mesure on va mettre ca, dans une list. et on concatene apres la fin de la boucle.\\nOn peut mixer ca avec une list comprehension\\nOn prefere aussi un f-strings a une concatenation",
+		"answer": "Il n’y a pas de append() en python. Les strings sont “immutable”. Pourquoi ? parce qu’on fonctionne comme en C avec des char *\nMais du coup on peut se retrouver a faire ;\nword += other_word\nCe qui est acceptable si on le fait qu’une fois mais pas si on le fait plein de fois.\nLe probleme c’est qu’en arriere plan, il se passe des choses pas tres optimise si on commence a faire ca dans une boucle(reallocation).\nMais du coup la strategie est autre. Au lieu de concatener au fur et a mesure on va mettre ca, dans une list. et on concatene apres la fin de la boucle.\nOn peut mixer ca avec une list comprehension\nOn prefere aussi un f-strings a une concatenation",
 		"tags": ["python"]
 	},
 	{
 		"id": "005",
 		"question": "comment on debug un code en python ? (plusieurs maniere de faire, en dehors de vscode)",
-		"answer": "On peut utiliser pdb, Python Debugger a la maniere une peu d’un GDB like mais avec l’interface graphique en moins\\npour l’enclencher on peut utiliser breakpoint() au milieu de notre code",
+		"answer": "On peut utiliser pdb, Python Debugger a la maniere une peu d’un GDB like mais avec l’interface graphique en moins\npour l’enclencher on peut utiliser breakpoint() au milieu de notre code",
 		"tags": ["python"]
 	},
 	{
 		"id": "006",
 		"question": "Qu’est ce qu’un tuple ?",
-		"answer": "Un tuple est une structure de donne qui permet de stocke differents types de donnes dans un meme endroit.\\nOn les declares en utilisant des ( )\\nUne fois cree on ne peut plus modifier un tuple, comprendre ajouter enlever des elements de celui ci.\\n\\nL’astuce c’est d’en cree un autre;\\nt = (1,2,”string”)\\nt += (5,)\\nattention il faut bien ajouter une virgule ici, sinon ca ne fonctionne pas car il ne comprend pas qu’on parle d’une tuple\\n\\nLes tuples sont dit ordonnees car ils gardent l’ordre de leur creation",
+		"answer": "Un tuple est une structure de donne qui permet de stocke differents types de donnes dans un meme endroit.\nOn les declares en utilisant des ( )\nUne fois cree on ne peut plus modifier un tuple, comprendre ajouter enlever des elements de celui ci.\n\nL’astuce c’est d’en cree un autre;\nt = (1,2,”string”)\nt += (5,)\nattention il faut bien ajouter une virgule ici, sinon ca ne fonctionne pas car il ne comprend pas qu’on parle d’une tuple\n\nLes tuples sont dit ordonnees car ils gardent l’ordre de leur creation",
 		"tags": ["python"]
 	},
 	{
 		"id": "007",
 		"question": "Qu’est-ce qu’un dictionnaire ?",
-    		"answer": "Comme un dictionnaire dans la vrai vie on a une paire key - value\\nPour le declarer au plus simple on peut utiliser { }\\nil existe plethore de methode .keys() .get() etc…..\\n\\nEn arriere plan c’est une hashmap qui est implemente ce qui permet de faire des operations en O(1)",
+    		"answer": "Comme un dictionnaire dans la vrai vie on a une paire key - value\nPour le declarer au plus simple on peut utiliser { }\nil existe plethore de methode .keys() .get() etc…..\n\nEn arriere plan c’est une hashmap qui est implemente ce qui permet de faire des operations en O(1)",
     		"tags": ["python"]
 	},
 	{
 		"id": "008",
 		"question": "Qu’est ce qu’un set en python ?",
-		"answer": "Les sets sont des structure de donnes qui sont unordered, unchangeable, et unindexed\\nunordered ⇒ on peut pas etre certains de l’ordre\\nunindexed ⇒ on ne peut pas acceder avec un index a un endroit du set\\nunchangeable ⇒ ca veut dire que les objets dans le set ne peuvent pas etre modifiable.\\nCa ne veut pas dire qu’on ne peut pas enlever ou ajouter un objet du set en question.\\nOn utilise comme dans le dictionnaire des { } mais il n’y a que un objet, il n’y a pas de cle - valeur.\\n\\nIl ne peut pas y avoir de doublon dans un set",
+		"answer": "Les sets sont des structure de donnes qui sont unordered, unchangeable, et unindexed\nunordered ⇒ on peut pas etre certains de l’ordre\nunindexed ⇒ on ne peut pas acceder avec un index a un endroit du set\nunchangeable ⇒ ca veut dire que les objets dans le set ne peuvent pas etre modifiable.\nCa ne veut pas dire qu’on ne peut pas enlever ou ajouter un objet du set en question.\nOn utilise comme dans le dictionnaire des { } mais il n’y a que un objet, il n’y a pas de cle - valeur.\n\nIl ne peut pas y avoir de doublon dans un set",
 		"tags": ["python"]
 	},
 	{
 		"id": "009",
 		"question": "Qu’est-ce que f-string ?",
-    		"answer": "Une f strings est simplement une string avec un f colle devant.\\nCa permet de mettre des variable avec des accolades et de les integre dedans.\\nC’est souvent le meilleur moyen de print des choses a ce niveau la compare au % ou au .format(),\\n dont le premier peut avoir des erreurs et le second est plus verbeux et lent\\n(plus lent car format() va chercher la methode a la string tandis que f-string c’est a la compilation).",
+    		"answer": "Une f strings est simplement une string avec un f colle devant.\nCa permet de mettre des variable avec des accolades et de les integre dedans.\nC’est souvent le meilleur moyen de print des choses a ce niveau la compare au % ou au .format(),\n dont le premier peut avoir des erreurs et le second est plus verbeux et lent\n(plus lent car format() va chercher la methode a la string tandis que f-string c’est a la compilation).",
     		"tags": ["python"]
 	},
 	{
 		"id": "010",
 		"question": "Comment je fais pour print avec un f-string un float avec un set de precision ?",
-    		"answer": "pour ca on peut preciser apres le nom de la variable avec un : suivi de la precision qu’on souhaite\\nOn peut faire plein de chose avec cette idee (voir image)",
+    		"answer": "pour ca on peut preciser apres le nom de la variable avec un : suivi de la precision qu’on souhaite\nOn peut faire plein de chose avec cette idee (voir image)",
 		"tags": ["python"]
 	},
 	{
 		"id": "011",
 		"question": "Que produit le code suivant ; print(not “”) ?",
-    		"answer": "cette question veut illustrer une maniere de savoir si un objet est vide ou non\\nle PEP 8 et la communaute python recommande d’eviter de faire len(<something>) == 0\\nmais plutot d’utiliser not\\nPourquoi ? car un objet vide est par defaut False.\\n(d’ailleurs mon avis perso c’est que ca fait un peu plus pro de faire ca que le len() compare a d’autres candidats junior qui serait amene a le faire)",
+    		"answer": "cette question veut illustrer une maniere de savoir si un objet est vide ou non\nle PEP 8 et la communaute python recommande d’eviter de faire len(<something>) == 0\nmais plutot d’utiliser not\nPourquoi ? car un objet vide est par defaut False.\n(d’ailleurs mon avis perso c’est que ca fait un peu plus pro de faire ca que le len() compare a d’autres candidats junior qui serait amene a le faire)",
     		"tags": ["python"]
 	},
 	{
 		"id": "012",
-		"question": "Quelle est la différence entre == et is ?\\n",
-		"answer": "== verifie l’egalite\\ntandis que le mot cle “is” check le bloc de memoire",
+		"question": "Quelle est la différence entre == et is ?\n",
+		"answer": "== verifie l’egalite\ntandis que le mot cle “is” check le bloc de memoire",
 		"tags": ["python"]
 	},
 	{
 		"id": "013",
 		"question": "Expliquer ce code ?",
 		"questionImage": "",
-		"answer": "En python, de maniere assez etonnante, il y a de l’object caching sur les integer.\\nLes integer de -5 a 256 sont mis en cache dans la memoire, car ils sont considere comme souvent utilise.\\nDonc quand on est sur ces valeurs, la compilation va alors simplement pointe vers les blocs de memoire deja reserve.\\nOn peut verifier avec id",
+		"answer": "En python, de maniere assez etonnante, il y a de l’object caching sur les integer.\nLes integer de -5 a 256 sont mis en cache dans la memoire, car ils sont considere comme souvent utilise.\nDonc quand on est sur ces valeurs, la compilation va alors simplement pointe vers les blocs de memoire deja reserve.\nOn peut verifier avec id",
 		"answerImage": "",
     		"tags": ["python"]
 	},
 	{
 		"id": "014",
 		"question": "Qu’est-ce que type hinting ?",
-		"answer": "Par defaut en python, une variable peut prendre une valeur de different type rapidement car il n’est pas type.\\nLe type hinting est juste une annotation qui permet de preciser pour les utilisateurs ce qu’est une variable et le resultat d’une fonction\\nattention, ce n’est qu’un annotation, cela n’enforce pas cette utilisation\\nMais dans la documenation officiel, on nous donne des references vers des outils qui vont olblige de faire ca comme mypy",
+		"answer": "Par defaut en python, une variable peut prendre une valeur de different type rapidement car il n’est pas type.\nLe type hinting est juste une annotation qui permet de preciser pour les utilisateurs ce qu’est une variable et le resultat d’une fonction\nattention, ce n’est qu’un annotation, cela n’enforce pas cette utilisation\nMais dans la documenation officiel, on nous donne des references vers des outils qui vont olblige de faire ca comme mypy",
 		"answerImage": "",
 		"tags": ["python"]
 	},
 	{
 		"id": "015",
 		"question": "Qu’est-ce que slicing en python ?",
-		"answer": "c’est le moyen d’extraire depuis une sequence. Par sequence on parle d'une structure de donne contigu comme une list, un tuple ou une string\\non l’ecrit avec des [ ]\\n[<point de depart>: <point d’arriver exclu>: <optionnel le pas>]\\nLe slicing plus avance vous permet aussi de remplir",
+		"answer": "c’est le moyen d’extraire depuis une sequence. Par sequence on parle d'une structure de donne contigu comme une list, un tuple ou une string\non l’ecrit avec des [ ]\n[<point de depart>: <point d’arriver exclu>: <optionnel le pas>]\nLe slicing plus avance vous permet aussi de remplir",
     		"answerImage": "",
 		"tags": ["python"]
 	},
 	{
 		"id": "016",
 		"question": "Quel version de python vous utilisez ?",
-    		"answer": "question general mais essayer de connaitre 1 ou 2 choses d’une version plus ou moins recentes.\\nSi vous avez des nouvelles meme sur l’absolute derniere version c’est bien.\\npython --version pour connaitre votre version",
+    		"answer": "question general mais essayer de connaitre 1 ou 2 choses d’une version plus ou moins recentes.\nSi vous avez des nouvelles meme sur l’absolute derniere version c’est bien.\npython --version pour connaitre votre version",
 		"tags": ["python"]
 	},
 	{
 		"id": "017",
 		"question": "c’est quoi pip en python ?",
-		"answer": "Pip c’est les packet manager de python. Il permet d’installer des package, c’est a dire des librairie qui ne sont pas par defaut dans python.\\nExemple pour installer pandas, avant de l’importer dans votre code, dans votre terminal on va utiliser;\\n`pip install pandas`",
+		"answer": "Pip c’est les packet manager de python. Il permet d’installer des package, c’est a dire des librairie qui ne sont pas par defaut dans python.\nExemple pour installer pandas, avant de l’importer dans votre code, dans votre terminal on va utiliser;\n`pip install pandas`",
 		"tags": ["python"]
 	},
 	{
 		"id": "018",
 		"question": "comment importer une libraire en python dans notre code ?",
-		"answer": "dans notre code on peut tout importer\\n*import pandas*\\non peut aussi changer le nom pour avoir quelque chose de plus simple;\\n*import pandas as pd*\\net maintenant au lieu de faire pandas.DataFrame() on aura pd.DataFrame()\\non peut aussi prendre quelque chose en particulier de la libraire\\nfrom <librairie> import <specific tools>",
+		"answer": "dans notre code on peut tout importer\n*import pandas*\non peut aussi changer le nom pour avoir quelque chose de plus simple;\n*import pandas as pd*\net maintenant au lieu de faire pandas.DataFrame() on aura pd.DataFrame()\non peut aussi prendre quelque chose en particulier de la libraire\nfrom <librairie> import <specific tools>",
 		"answerImage": "",
 		"tags": ["python"]
 	},
 	{
 		"id": "019",
 		"question": "C’est quoi PEP in python ?",
-		"answer": "PEP =  Python Enhancement Proposal\\nC’est la documentation sur l’evolution de python, les suggestion d’amelioration, de style, les problemes.\\nOn parle souvent de PEP suivi d’un numero\\nPEP 8 ⇒ style python\\nPEP 484 ⇒ introduction du type hinting\\nPEP 20 ⇒ the zen of python",
+		"answer": "PEP =  Python Enhancement Proposal\nC’est la documentation sur l’evolution de python, les suggestion d’amelioration, de style, les problemes.\nOn parle souvent de PEP suivi d’un numero\nPEP 8 ⇒ style python\nPEP 484 ⇒ introduction du type hinting\nPEP 20 ⇒ the zen of python",
 		"tags": ["python"]
 	},
 	{
 		"id": "020",
 		"question": "Qu’est ce que Cpython ?",
-		"answer": "C’est l’implementation de reference de python faite par le createur de python Guido Von Rossum\\nCode en C.",
+		"answer": "C’est l’implementation de reference de python faite par le createur de python Guido Von Rossum\nCode en C.",
 		"tags": ["python"]
 	},
 	{
 		"id": "021",
 		"question": "Qu’est-ce qu’une list en Python ?",
-		"answer": "une liste se declare avec des [ ]\\nmalgre son nom ce n’est pas une linked list c’est bien un tableau dynamique de memoire. C’est bien un bloc de memoire contigu.\\nEn realite en arriere plan c’est un tableau dynamique de pointeur de PyObject.\\n Tout etant un objet en python. Donc ca veut dire qu’on peut avoir plusieurs type de donne dedans (c’est des blocs de memoire contigu de PyObject)\\nIl conserve l’information du tableau de tableau, de sa capacity et donc aussi de la ou il a deja rempli les choses\\n(on peut faire le parallele avec std::vector en C++ qui concretement fait la meme chose)",
+		"answer": "une liste se declare avec des [ ]\nmalgre son nom ce n’est pas une linked list c’est bien un tableau dynamique de memoire. C’est bien un bloc de memoire contigu.\nEn realite en arriere plan c’est un tableau dynamique de pointeur de PyObject.\n Tout etant un objet en python. Donc ca veut dire qu’on peut avoir plusieurs type de donne dedans (c’est des blocs de memoire contigu de PyObject)\nIl conserve l’information du tableau de tableau, de sa capacity et donc aussi de la ou il a deja rempli les choses\n(on peut faire le parallele avec std::vector en C++ qui concretement fait la meme chose)",
     		"answerImage": "",
     		"tags": ["python"]
 	}

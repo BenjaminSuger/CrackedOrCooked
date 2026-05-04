@@ -2,7 +2,7 @@
 	{
 		"id": "000",
 	   	"question": "c’est quoi les 4 pilliers de l’oriente objet ?",
-		"answer": "Les 4 pilliers de l’oriente objet c’est ;\\n* Encapsulation\\n* Heritage\\n* Abstraction\\n* Polymorphisme",
+		"answer": "Les 4 pilliers de l’oriente objet c’est ;\n* Encapsulation\n* Heritage\n* Abstraction\n* Polymorphisme",
 		"tags": ["CS"]
 	},
 	{
@@ -32,7 +32,7 @@
 	{
     		"id": "005",
     		"question": "C’est quoi la notation Big O ?",
-    		"answer": "La notation Big O mesure la croissance théorique de la complexité d’un algorithme en fonction de la taille de l’entrée (que l’on nomme n).\\nLorsque l’on parle de la croissance, on parle de la croissance en terme de temps et de mémoire.\\nEn anglais on parle de Time and Space complexity.",
+    		"answer": "La notation Big O mesure la croissance théorique de la complexité d’un algorithme en fonction de la taille de l’entrée (que l’on nomme n).\nLorsque l’on parle de la croissance, on parle de la croissance en terme de temps et de mémoire.\nEn anglais on parle de Time and Space complexity.",
     		"tags": ["CS"]
 	}
 ]
