@@ -52,7 +52,8 @@ img {
 }
 
 .answer-img {
-  display: none;
+  display: block;
+  margin: 10px auto;
 }
 
 #buttons button {
