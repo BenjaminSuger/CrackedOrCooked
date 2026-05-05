@@ -2,7 +2,8 @@
 	{
 		"id": "000",
 		"question": "Qu’est-ce que la mutabilité en python ? Les strings sont-elles mutables ?",
-		"answer": "Un objet est mutable si on peut le modifier apres sa creation sinon il est immutable.\nUne string n’est pas mutable en python.\nA la maniere d’un char *str  = “”; qui n’est pas mutable (ce qui est surement l’implementation en Cpython)", 
+		"answer": "Un objet est mutable si on peut le modifier apres sa creation sinon il est immutable.\nUne string n’est pas mutable en python.\nA la maniere d’un char *str  = “”; qui n’est pas mutable (ce qui est surement l’implementation en Cpython)",
+		"answerImage": "images/python/python000.png",
 		"tags": ["python"]
 	},
 	{
@@ -16,12 +17,14 @@
 		"id": "002",
     		"question": "comment on peut cree une string a partir d’une list ?",
     		"answer": "on peut utiliser .join()",
+		"answerImage": "images/python/python002.png",
     		"tags": ["python"]
 	},
 	{
 		"id": "003",
 		"question": "Comment on fait pour representer en binaire une valeur en python ?",
 		"answer": "il existe une fonction bin()\npar contre pour une lettre il faut faire un travail au prealable",
+		"answerImage": "images/python/python003.png",
     		"tags": ["python"]
 	},
 	{
@@ -32,7 +35,7 @@
 	},
 	{
 		"id": "005",
-		"question": "comment on debug un code en python ? (plusieurs maniere de faire, en dehors de vscode)",
+		"question": "comment on debug un code en python ? (en dehors de vscode)",
 		"answer": "On peut utiliser pdb, Python Debugger a la maniere une peu d’un GDB like mais avec l’interface graphique en moins\npour l’enclencher on peut utiliser breakpoint() au milieu de notre code",
 		"tags": ["python"]
 	},
@@ -46,58 +49,64 @@
 		"id": "007",
 		"question": "Qu’est-ce qu’un dictionnaire ?",
     		"answer": "Comme un dictionnaire dans la vrai vie on a une paire key - value\nPour le declarer au plus simple on peut utiliser { }\nil existe plethore de methode .keys() .get() etc…..\n\nEn arriere plan c’est une hashmap qui est implemente ce qui permet de faire des operations en O(1)",
+		"answerImage": "images/python/python007.png",
     		"tags": ["python"]
 	},
 	{
 		"id": "008",
 		"question": "Qu’est ce qu’un set en python ?",
 		"answer": "Les sets sont des structure de donnes qui sont unordered, unchangeable, et unindexed\nunordered ⇒ on peut pas etre certains de l’ordre\nunindexed ⇒ on ne peut pas acceder avec un index a un endroit du set\nunchangeable ⇒ ca veut dire que les objets dans le set ne peuvent pas etre modifiable.\nCa ne veut pas dire qu’on ne peut pas enlever ou ajouter un objet du set en question.\nOn utilise comme dans le dictionnaire des { } mais il n’y a que un objet, il n’y a pas de cle - valeur.\n\nIl ne peut pas y avoir de doublon dans un set",
+		"answerImage": "images/python/python008.png",
 		"tags": ["python"]
 	},
 	{
 		"id": "009",
 		"question": "Qu’est-ce que f-string ?",
     		"answer": "Une f strings est simplement une string avec un f colle devant.\nCa permet de mettre des variable avec des accolades et de les integre dedans.\nC’est souvent le meilleur moyen de print des choses a ce niveau la compare au % ou au .format(),\n dont le premier peut avoir des erreurs et le second est plus verbeux et lent\n(plus lent car format() va chercher la methode a la string tandis que f-string c’est a la compilation).",
+		"answerImage": "images/python/python009.png",
     		"tags": ["python"]
 	},
 	{
 		"id": "010",
 		"question": "Comment je fais pour print avec un f-string un float avec un set de precision ?",
     		"answer": "pour ca on peut preciser apres le nom de la variable avec un : suivi de la precision qu’on souhaite\nOn peut faire plein de chose avec cette idee (voir image)",
+		"answerImage": "images/python/python010.png",
 		"tags": ["python"]
 	},
 	{
 		"id": "011",
 		"question": "Que produit le code suivant ; print(not “”) ?",
     		"answer": "cette question veut illustrer une maniere de savoir si un objet est vide ou non\nle PEP 8 et la communaute python recommande d’eviter de faire len(<something>) == 0\nmais plutot d’utiliser not\nPourquoi ? car un objet vide est par defaut False.\n(d’ailleurs mon avis perso c’est que ca fait un peu plus pro de faire ca que le len() compare a d’autres candidats junior qui serait amene a le faire)",
+		"answerImage": "images/python/python011.png",
     		"tags": ["python"]
 	},
 	{
 		"id": "012",
 		"question": "Quelle est la différence entre == et is ?\n",
 		"answer": "== verifie l’egalite\ntandis que le mot cle “is” check le bloc de memoire",
+		"answerImage": "images/python/python012.png",
 		"tags": ["python"]
 	},
 	{
 		"id": "013",
 		"question": "Expliquer ce code ?",
-		"questionImage": "",
+		"questionImage": "images/python/python013.png",
 		"answer": "En python, de maniere assez etonnante, il y a de l’object caching sur les integer.\nLes integer de -5 a 256 sont mis en cache dans la memoire, car ils sont considere comme souvent utilise.\nDonc quand on est sur ces valeurs, la compilation va alors simplement pointe vers les blocs de memoire deja reserve.\nOn peut verifier avec id",
-		"answerImage": "",
+		"answerImage": "images/python/python013Answer.png",
     		"tags": ["python"]
 	},
 	{
 		"id": "014",
 		"question": "Qu’est-ce que type hinting ?",
 		"answer": "Par defaut en python, une variable peut prendre une valeur de different type rapidement car il n’est pas type.\nLe type hinting est juste une annotation qui permet de preciser pour les utilisateurs ce qu’est une variable et le resultat d’une fonction\nattention, ce n’est qu’un annotation, cela n’enforce pas cette utilisation\nMais dans la documenation officiel, on nous donne des references vers des outils qui vont olblige de faire ca comme mypy",
-		"answerImage": "",
+		"answerImage": "images/python/python014.png",
 		"tags": ["python"]
 	},
 	{
 		"id": "015",
 		"question": "Qu’est-ce que slicing en python ?",
 		"answer": "c’est le moyen d’extraire depuis une sequence. Par sequence on parle d'une structure de donne contigu comme une list, un tuple ou une string\non l’ecrit avec des [ ]\n[<point de depart>: <point d’arriver exclu>: <optionnel le pas>]\nLe slicing plus avance vous permet aussi de remplir",
-    		"answerImage": "",
+    		"answerImage": "images/python/python015.png",
 		"tags": ["python"]
 	},
 	{
