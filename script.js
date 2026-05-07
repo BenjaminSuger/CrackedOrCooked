@@ -198,3 +198,21 @@ function resetProgress() {
 
   filterAndStart();
 }
+
+document.addEventListener("click", (e) => {
+  if (
+    e.target.classList.contains("question-img") ||
+    e.target.classList.contains("answer-img")
+  ) {
+    const modal = document.getElementById("image-modal");
+    const modalImg = document.getElementById("modal-image");
+
+    modalImg.src = e.target.src;
+
+    modal.classList.remove("hidden");
+  }
+  if (e.target.id === "image-modal") {
+    document.getElementById("image-modal")
+      .classList.add("hidden");
+  }
+});
