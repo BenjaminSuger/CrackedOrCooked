@@ -124,7 +124,7 @@ function showCard() {
         ${card.question}
       </div>
 
-      ${card.questionImage ? `<img src="${card.questionImage}" />` : ""}
+      ${card.questionImage ? `<img src="${card.questionImage}" class="question-img" />` : ""}
 
       <div class="answer" id="answer">
         ${card.answer.replace(/\n/g, "<br>")}
