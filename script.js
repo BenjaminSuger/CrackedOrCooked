@@ -124,7 +124,7 @@ function showCard() {
         ${card.question}
       </div>
 
-      ${card.questionImage ? `<img src="${card.questionImage}" />` : ""}
+      ${card.questionImage ? `<img src="${card.questionImage}" class="question-img" />` : ""}
 
       <div class="answer" id="answer">
         ${card.answer.replace(/\n/g, "<br>")}
@@ -198,3 +198,21 @@ function resetProgress() {
 
   filterAndStart();
 }
+
+document.addEventListener("click", (e) => {
+  if (
+    e.target.classList.contains("question-img") ||
+    e.target.classList.contains("answer-img")
+  ) {
+    const modal = document.getElementById("image-modal");
+    const modalImg = document.getElementById("modal-image");
+
+    modalImg.src = e.target.src;
+
+    modal.classList.remove("hidden");
+  }
+  if (e.target.id === "image-modal") {
+    document.getElementById("image-modal")
+      .classList.add("hidden");
+  }
+});
