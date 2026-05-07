@@ -140,7 +140,7 @@ function showAnswer() {
   if (answer) answer.style.display = "block";
 
   document.querySelectorAll(".answer-img")
-    .forEach(img => img.style.display = "block");
+  .forEach(img => img.classList.add("visible"));
 }
 
 function markKnown(known) {

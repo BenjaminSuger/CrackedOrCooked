@@ -52,8 +52,12 @@ img {
 }
 
 .answer-img {
-  display: block;
+  display: none;
   margin: 10px auto;
+}
+
+.answer-img.visible {
+  display: block;
 }
 
 #buttons button {
