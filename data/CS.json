@@ -34,5 +34,42 @@
     		"question": "C’est quoi la notation Big O ?",
     		"answer": "La notation Big O mesure la croissance théorique de la complexité d’un algorithme en fonction de la taille de l’entrée (que l’on nomme n).\nLorsque l’on parle de la croissance, on parle de la croissance en terme de temps et de mémoire.\nEn anglais on parle de Time and Space complexity.",
     		"tags": ["CS"]
+	},
+	{
+    		"id": "006",
+    		"question": "Qu’est ce qu’un OS (Operating system) et un kernel (+ les differences) ?",
+    		"answer": "Un OS est un programme qui gere les autres programmes lance par l’ordinateur.\nIl fait le lien entre le hardware et les logiciels. Il va avoir une interface (GUI ou CLI) et un file system.\nLe kernel est la partie de l’OS qui ne s’occupe uniquement de faire la liaison entre la machine et l’OS. Il permet l’allocation de ressources et de la memoire, la gestion du CPU, les operations I/O, etc……\nD’ou la fameuse blague “actually linux is only the kernel” (GNU etant l’OS, ou d’autres desormais).",
+		"answerImage": "images/CS/CS006.png",
+    		"tags": ["CS"]
+	},
+	{
+    		"id": "007",
+    		"question": "Qu’est ce que le boot loader et le boot manager (Operating system) ?",
+    		"answer": "Quand on allume son ordinateur on va avoir le BIOS/UEFI (ancien/moderne) qui va gerer le hardware.\nPuis il va donner la main au boot manager qui va choisir l’OS qu’il doit charger, si il y a un choix possible.\nEnfin c’est le boot loader qui va demarrer l’OS en allant chercher le kernel.\nGRUB est le boot manager et le boot loader de linux.\nTandis que Windows separe bien les 2.",
+    		"tags": ["CS"]
+	},
+	{
+    		"id": "008",
+    		"question": "C’est quoi UNIX compare a Linux ?",
+    		"answer": "Pour repondre a la question il faut determiner ce qu’est UNIX\nUNIX est un OS qui a etait cree au Bell Labs par entre autre, Ken Thompson (co createur du B, du Go, grep….), Dennis Ritchie (createur du C), Brian Kernighan (co autheur du livre de ref du C de base, createur de AWK),...\nUNIX etait un nouveau OS a l’epoque qui avait une maniere de fonctionne particuliere compare a ce qui existait.\nUNIX est une marque depose initiallement par AT&T (puis des changement de main d’entreprise en entreprise). Par differentes histoires rocambolesque, l’UNIX wars, des problemes juridique,…. on va desormais parle de UNIX comme une famille d’OS. Car son architecture est utilise dans beaucoup de projet ;\nGNU / Linux ⇒ meme si pour des raisons de droit/open source il est re ecrit totalement\nBSD avec FreeBSD, DragonFly BSD….\nPlein de systeme commerciaux (AIX d’IBM, Solaris d’Oracle,etc….)",
+    		"tags": ["CS"]
+	},
+	{
+    		"id": "009",
+    		"question": "C’est quoi l’Instruction Set Architecture (ISA) ?",
+    		"answer": "l’ISA est le manuel d’instruction pour le CPU.\nIl definit le langage qu’il faut utiliser pour communiquer avec le CPU.\nQuand on parle de langage on parle des instruction au plus bas niveau possible.\nL’ISA va determiner ; les instructions que le CPU peut suivre, les registres (bloc de memoire a l’interieur du CPU) et la taille de donne (32 ou 64 bits).\nIl existe 2 grandes familles ;\nCISC ⇒ x86 (32 bits) x86-64 (64 bits), Intel et AMD en grande majorite\nRISC ⇒ c’est l’ARM qu’on retrouvre sur Mac puce M1/M2/M3 etc….",
+    		"tags": ["CS"]
+	},
+	{
+    		"id": "010",
+    		"question": "Qu’est ce qu’un system call (syscall) ?",
+    		"answer": "Un appel systeme c’est ce qui permet au programme d’utiliser les ressources de l’ordinateur pour faire des operations, ce qui passe par le kernel.\nDe base les programmes qu’on utilise, qu’on code ne nous laisse pas la main sur les ressources de l’ordinateur car ca serait un trop grand risque et complexe.\nCar sans ca, chaque program devrait aller chercher les ressources tout seul.\nDu coup il y a une interface entre nous et tout cela, ce sont des fonctions qui vont etre autorise a faire des operations comme fork(), write(), brk(),etc….\nCe qui ce passe sous le capeau, quand il y a un syscall, le CPU va passer du mode utilisateur a kernel, identifier le numero du system call, completer la tache et ensuite il va rendre la main en repassant en mode utilisateur.",
+    		"tags": ["CS"]
+	},
+	{
+    		"id": "011",
+    		"question": "Pourquoi un system call est plus lent qu’un function call ?",
+    		"answer": "Un appel a une fonction c’est simple et direct.\nAlors qu’un syscall lui va avoir tout un overhead avec le CPU pour qu’il passe en mode Kernel, puis cherche dans la table de syscall le numero, fasse l’operation et ensuite repasse le CPU en mode user.\nCe changement entre kernel et user peut creer un probleme  (flush du TLB Translation Lookaside Buffer) qui fait qule CPU va devoir recharger les informations depuis la RAM ce qui est lent\nPourquoi c’est important de savoir ca ?\nparce que ca pousse a ne pas faire des syscall n’importe comment, mieux vaut un grand write, qu’une serie de write petit.",
+    		"tags": ["CS"]
 	}
 ]
