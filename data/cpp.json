@@ -1,0 +1,34 @@
+[
+	{
+		"id": "001",
+		"question": "Que ce passe t’il avec ce code ?",
+		"questionImage": "images/cpp/cpp001.png",
+		"answer": "Il ne compile pas ! Vous allez avoir une erreur “error: ambiguating new declaration of ‘double foo(int)’”\nEffectivement, le compilateur ne peut plus faire de difference entre les fonctions.",
+		"answerImage": "",
+		"tags": ["C++"]
+	},
+	{
+		"id": "002",
+		"question": "En C++, que fait new s’il fail ?",
+		"questionImage": "images/cpp/cpp002.png",
+		"answer": "Si vous avez repondu “il throw une exception” vous avez raison ! Mais vous pouvez completer la reponse avec un detail, il peut ne pas throw si on le souhaite et avoir un comportement identique a un malloc en C. Pour ca il faut lui preciser “(std::nothrow)”",
+		"answerImage": "",
+		"tags": ["C++"]
+	},
+	{
+		"id": "003",
+		"question": "En C++ c’est quoi l’ordre d’evaluation dans une fonction ?  exemple func(func1(), func2())  follow up question ; depuis C++17 ?",
+		"questionImage": "",
+		"answer": "Avant C++17, il n’y a aucun detail, c’est totalement unspecified behavior. func1() peut etre call apres func2().\nDepuis le C++17, il y a quelques changements, on assure que les arguments sont totalement termine, l’ordre gauche-droite reste unspecified cependant.\nIl y a 3 cas ou on force la lecture gauche ⇒ droite;\na=b\na << b\na.b (acces membres)\nSi ca devient important l’ordre d’evaluation pour vous ⇒ separer en mettant l’output dans des variables. Pensez au cas func(++i, ++i);",
+		"answerImage": "",
+		"tags": ["C++"]
+	},
+	{
+		"id": "004",
+		"question": "difference entre std::array et std::vector en C++ ?",
+		"questionImage": "",
+		"answer": "std::array est sur la stack, c’est un tableau fixe comme on peut le voir en C.\nstd::vector est un tableau dynamique, il va reallouer sa propre taille tout seul au fur et a mesure.\nOn pourrait bien sur mettre std::array sur la heap avec un new mais on prefere eviter car on a deja mieux implementer.\nstd::array presente quand meme des avantages a un array C like, avec des methodes at() ou size() qui permettent de verifier le debordement. Plus il a des avantages d’etres precis sur la memoire qu’on a.",
+		"answerImage": "",
+		"tags": ["C++"]
+	}
+]

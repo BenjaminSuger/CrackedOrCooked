@@ -71,5 +71,158 @@
     		"question": "Pourquoi un system call est plus lent qu’un function call ?",
     		"answer": "Un appel a une fonction c’est simple et direct.\nAlors qu’un syscall lui va avoir tout un overhead avec le CPU pour qu’il passe en mode Kernel, puis cherche dans la table de syscall le numero, fasse l’operation et ensuite repasse le CPU en mode user.\nCe changement entre kernel et user peut creer un probleme  (flush du TLB Translation Lookaside Buffer) qui fait qule CPU va devoir recharger les informations depuis la RAM ce qui est lent\nPourquoi c’est important de savoir ca ?\nparce que ca pousse a ne pas faire des syscall n’importe comment, mieux vaut un grand write, qu’une serie de write petit.",
     		"tags": ["CS"]
-	}
+	},
+  {
+		"id": "012",
+		"question": "Qu’est ce qu’un REPL ?",
+		"questionImage": "",
+		"answer": "REPL = Read Eval Print Loop\nC’est une invite de commande qui permet d’entrer des instructions qui vont etre immediatement evalue et l’output sortie tout de suite.\nCela tourne en boucle pour vous laisser faire d’autres instructions.\nExample; Bash, python3 (dans le terminal)",
+		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+  		"id": "013",
+    		"question": "Qu’est ce qu’un linter ?",
+    		"questionImage": "",
+    		"answer": "Un linter est un analyseur de code statique.\nIl va examiner vos fichiers sources de code et essayer de trouver des erreurs, des problemes de style, des alertes bug prone.\nPas besoin de compiler, mais certains vont demande a avoir les details de la structure (les .h / .hpp et les .c / .cpp). Example; flake8 pour python\nclang-tidy pour le C++",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+		"id": "014",
+		"question": "qu’est ce que la programmation imperative ?",
+		"questionImage": "",
+		"answer": "C’est un paradigme, une maniere de reflechir au code.\nLa programmation imperative on va explicitement preciser les operations a realiser pour resoudre notre probleme.\nOn va retrouver tout une logique de flow, de traitement d’operations, boucles, if statement,etc….\nC’est le plus souvent la ou on commence a apprendre la programmation (comme le C par exemple). L’ordre des operations est important\nL’architecture de nos ordinateurs est par nature imperative (Van Neuman)\nUn des aspects important de la programmation imperative c’est qu’on va avoir des etats et des mutations (= changement des variables)",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "015",
+		"question": "qu’est ce que la programmation declarative ?",
+		"questionImage": "",
+		"answer": "la programmation declarative est un paradigme, c’est a dire une maniere de reflechir a l’ecriture du code.\nIci on ne va pas decrire ce qu’on va faire, mais ce qu’on veut avoir en resultat.\nComment c’est possible ? C’est un langage de programmation ou on va ecrire du code, dont le compiler / interpreter va s’occuper de fournir le resultat. Ici on veut “quoi” plutot que le “comment”.\nUne requete SQL, on ne lui precise pas comment faire pour trouver l’output, on lui demande de nous sortir un output avec des criteres. C’est lui qui s’occupe de faire les choses de son cote.\n Autres exemples de langage declaratif; HTML, CSS, terraform,",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "016",
+		"question": "qu’est ce que le programmation fonctionnelle ?",
+		"questionImage": "",
+		"answer": "La programmation fonctionnelle est un paradigme, c’est une maniere d’ecrire et de reflechir au code.\nOn va ici tout decompose en fonction notre probleme. C’est une maniere de representer les choses de maniere plus proche des mathematiques\nElle a plusieurs principes; immuabilite des variables,\nle resultat des fonctions ne depend que des arguments (= fonction pure ⇒ avec le meme input toujours le meme output),\npas d’effet de bord pour les fonctions (modification d’etat du programme),\n utilisation de la recursivite au lieu des boucles (mais des systeme de protection pour eviter les overflows),\nPartage de structure pour eviter consommation de memoire abusive\nCette logique est souvent mise en avant pour sa simplicite sur des gros projets, car le code devient previsible\nExemple de langages fonctionnelle; Ocaml, Haskell",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "017",
+		"question": "qu’est ce que la programmation oriente objet ?",
+		"questionImage": "",
+		"answer": "La programmation oriente objet est un paradigme, une maniere de reflechir et ecrire du code.\nIci on va reflechir a notre code en objet. Un objet representant une entite qui va etre creer par un moule, qu’on appelle une classe.\nLes objets vont avoir des attributs et des comportements (= fonction). La programmation oriente objet a 4 piliers; encapsulation, abstration, inheritance, polymorphisme.\n",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "018",
+		"question": "En programmation qu’est ce que le typage dynamique ou statique ?",
+		"questionImage": "",
+		"answer": "Les differents langage de programmation traitent differement les variables.\nUn typage dynamique, c’est que la variable est connu uniquement au runtime.\nUn typage statique c’est qu’on declare le type de la variable. On connait donc le type de la variable a la compilation. Il reste fige, on ne peut plus le changer.\nLe C / C++ ⇒ typage statique\nLe python / javascript ⇒ typage dynamique\nOn peut ajouter une autre notion, typage fort et faible. Fort il est strict et nous vous laisse pas faire n’importe quoi (python), faible il peut vous laisser faire des conversion ou a des regles assez libre (javascript).\n5 + “2” est un bon exemple ⇒ python pas ok, javascript ok….",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "019",
+		"question": "qu’est ce qu’un garbage collector ?",
+		"questionImage": "",
+		"answer": "Le garbage collector (GC), en programmation, est le systeme qui permet de recuperer la memoire utilise par le programme qui ne sert plus.\nCertains langages de programmation ont un GC par defaut (python, JAVA) et d’autres non (C).\nCela peut eviter des erreurs mais parfois presente un desavantage sur le temps/performance car cela necesite une utilisation de ressources de la machine (mais tous les langages ne sont pas egaux sur la question et c’est des points de debat infine)\nIl existe differentes strategie pour mettre en place un GC ; check scope, reference counting (python), mark and sweep(java), etc….",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "020",
+		"question": "c’est quoi un hash ? (question CS)",
+		"questionImage": "",
+		"answer": "Un hash est le produit d’une fonction de hashage. Une fonction de hashage est une fonction qui permet de transformer un input, en une sequence de charactere d’une longeur fixe.\nLa fonction de hashage a plusieurs proprietes importantes;\n-irreversible; on ne peut pas a partir de l’output retrouver l’input.\n-unique; chaque input ne peut produire qu’un output unique en theorie (hash collision).\n-un input ne peut pas produire different output.\n",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "021",
+		"question": "c’est quoi un hash collision ?  (question CS)",
+		"questionImage": "",
+		"answer": "Certains algorithme de hashage cree une situation qui casse les proprietes necessaire. Il peut y avoir pur 2 input le meme output.\nExample imaginaire; le mot “chats” produit le meme output que le mot “chien”. On finit donc avec un hash identique pour des valeurs differentes.",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "022",
+		"question": "Qu’est ce qu’une rainbow table ? (question CS / Cybersecurite)",
+		"questionImage": "",
+		"answer": "Une rainbow table est une base de donne de hash deja etablit qui permet a un attaquant de comparer les hash qu’il aurait peu obtenir avec un leak. Meme si le hash n’est pas reversible, si l’attaquant trouve un hash deja existant dans sa base, il connait la source.\nOn peut eviter ce genre de probleme avec un ajout au hash, un salt (chaine de char aleatoire)",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+{
+		"id": "023",
+		"question": "Qu’est ce qu’une liste chaine (Computer Science) ?",
+		"questionImage": "",
+		"answer": "Une liste chaine est une structure de donne, une structure de donne etant un moyen d’organiser des donnes.\nUne liste chaine est une structure de donne lineaire mais dont les elements (ou aussi appelle noeud) ne sont pas contigu dans la memoire. Les elements sont lies entre eux en pointant chacun vers le prochain elements (et le precedent dans le cas d’une double linked list).\nL’avantage de cette structure de donne etant l’insertion O(1) et le trade off (le desavantage) etant le temps d’acces O(n) (en comparaison avec un array).",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "024",
+		"question": "Qu’est ce qu’un array (Computer Science) ?",
+		"questionImage": "",
+		"answer": "Un array ou tableau en francais, est une structure de donne, une structure de donne etant un moyen d’organiser des donnes.\nUn array est une structure de donne lineaire dont les elements sont contigu dans la memoire.\nL’array presente l’avantage d’avoir un acces rapide au informations car les blocs de memoires sont contigue (pointer addition), mais a un trade off sur l’insertion O(n).",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "025",
+		"question": "Quel est la complexite algorithmique de ce pseudo-code ?",
+		"questionImage": "images/CS/CS025.png",
+		"answer": "La premiere boucle tourne N fois, la seconde boucle tourne aussi N fois.\nDonc ca nous donne 2 * O(N) mais on drop les constantes, et on va donc avoir O(N).",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "026",
+		"question": "C’est quoi un binary search ? (et son Big O notation)",
+		"questionImage": "",
+		"answer": "On parle de aussi en francais de recherche dichotomique. Il nous faut une liste deja trie pour pouvoir operer dessus.\nC’est une recherche ou on va eliminer la moitie des elements a chaque test. En regardant la valeur du milieu et en conservant soit le cote gauche, soit le cote droit si c’est superieur ou inferieur.\nC’est un des meilleurs algorithme de recherche (meme s’il demande un prerequis important) avec sa notation O(log(N)).",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+{
+		"id": "027",
+		"question": "Qu’est ce que c’est undefined behavior contre unspecified behavior ?",
+		"questionImage": "",
+		"answer": "Undefined behavior = le comportement est indefini, c’est a dire que ca peut faire n’importe quoi, ca peut ou non compile, ca peut produire un output comme ca peut crash.\nUnspecified behavior = rien n’est specifie mais on peut faire un choix, le plus souvent c’est l’implementation du compilateur qui a fait un choix sur quelque chose de specifique",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "028",
+		"question": "c’est quoi une structure de donne abstraite / Abstract Data Type (question CS)?",
+		"questionImage": "",
+		"answer": "Une structure de donne abstraite utilise une structure de donne concrete pour etre implementer.\nC’est une structure qui definit des comportements mais pas une implementation.\n Par exemple une stack en data structure est abstraite, on doit implementer un LIFO mais pas forcement de precision si c’est fait avec une linked list ou un array, on est libre sur ce choix.",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "029",
+		"question": "c’est quoi la CI/CD (question CS) ?",
+		"questionImage": "",
+		"answer": "CI/CD = Continuous Integration and Continuous Deployment.\nC’est le process qui mis en place par les devops pour faire de l’automatisation sur toutes la procedure de creation et de sortie du code.\nOn met en place des tests du code (securite,…), l’automatisation des sorties de version etc….\nOn parle souvent de pipeline CI/CD",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "030",
+		"question": "c’est quoi un load balancer ? (question CS)",
+		"questionImage": "",
+		"answer": "Un load balancer c’est un outil  qui permet de diriger le traffic entrant pour repartir entre different serveurs.\nIl peut prendre la forme d’un software (NGINX) comme d’un outil cloud ou d’un outil hardware.\nCa permet d’eviter d’avoir des problemes d’acces, si il y a enormement de connections d’un coup.\nIl existe differentes strategies et algorithmes pour faire ca ; Robin tour (chaque connection a un server different), Least Connections (le serveur qui a moins de connection), IP Hash",
+		"answerImage": "",
+		"tags": ["CS"]
+  }
+
 ]

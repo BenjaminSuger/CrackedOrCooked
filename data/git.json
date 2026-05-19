@@ -64,5 +64,85 @@
 		  "question": "Que fait la commande git clone ?",
 		  "answer": "Git clone permet de copier un repository remote en local.  Il cree aussi un lien entre le repo distant (remote) et nous en local.\nPar defaut sans precision il va prendre la branche main / origin\navec l’option -b on peut preciser la branche exact qu’on souhaite.",
 		  "tags": ["git"]
+	  },
+	  {
+		  "id": "011",
+		  "question": "c’est quoi la norme des messages en commit sur git ?",
+		  "questionImage": "",
+		  "answer": "la “norme” qu’on appelle la “conventional commits” veut un format:\n type(portee optionnelle): [court message]\n[corp de message optionnel]\n[footer optionnel pour jira]\n\navec le type qui peut etre;\nfeat: nouvelle fonctionnalite\nfix: correction de bug\nrefactor: changement de code mais qui n’implemente rien de nouveau\ntest: ajout de test\nOn essaie d’ecrire les messages sans majuscules, qui depasse pas 72 char, utilise l’imperatif",
+		  "answerImage": "",
+		  "tags": ["git"]
+	  },
+	  {
+		  "id": "012",
+		  "question": "qu’est ce que tu fais si tu dois faire un commit sur ta branche mais ton travail est pas finit, qu’est ce que tu fais pour ce commit un peu sale ?",
+		  "questionImage": "",
+		  "answer": "On peut faire des commits sur notre branche un peu sale, parce qu’on a pas le temps, parce qu’on part et on veut l’avoir en dehors de notre ordinateurs,etc….\nC’est pas grave on peut alors faire un git commit --amend si ce n’est qu’un commit, ou alors faire un squash si c’est plusieurs commit. Tout ca pour rendre des branches plus propres avec des bons messages.",
+		   "answerImage": "",
+		   "tags": ["git"]
+	  },
+	  {
+		  "id": "013",
+		  "question": "Tu as fait un git add sur un fichier par erreur. Quelle commande permet de le retirer de la \"Staging Area\" sans supprimer tes modifications ?",
+		  "questionImage": "",
+		  "answer": "Attention ca a pas mal change avec plein d’evolution de git. Donc vous allez avoir tout un tas de reponse possible de plein de personnes. Les habitudes etant dur a tuer, l’avantage c’est que j’ecris la reponse avec la derniere version\n2 cas possibles;\nSi on a deja des commits et donc un HEAD actif, on va utiliser “git restore --staged <fichier>” (avant on faisait git reset sur le fichier).\nCas plus rare mais si on est sur un premier commit et donc pas de HEAD actif, la il faut faire “git rm --cached <fichier>”",
+		   "answerImage": "",
+		   "tags": ["git"]
+	  },
+	  {
+		  "id": "014",
+		  "question": "Quelle est la différence entre working directory, staging area et repository ?",
+		  "questionImage": "",
+		  "answer": "C’est une distinction interessante pour bien comprendre git et son fonctionnement.\nLe working directory c’est la ou tu travailles en brut sur les fichiers.\nLa staging area (ou index) c’est la zone tampon ou tu t’appretes a envoyer pour git, c’est quand tu fais git add.\nLe repository c’est quand tu vas faire commit et donc aller dans le .git (et voir repo a distance dans un second temps).\nC’est important parce que cette etape index (= staging area) c’est ce qui permet a git de choisir les fichiers qu’on veut. Ca lui evite d’envoyer tous les fichiers mais que ce qui est modifie.",
+		   "answerImage": "",
+		   "tags": ["git"]
+	  },
+	  {
+		  "id": "015",
+		  "question": "c’est quoi git amend ? et comment l’utiliser ?",
+		  "questionImage": "",
+		  "answer": "git amend arrive quand on veut faire un commit, ce n’est pas une commande git a part.\n git commit --amend\nCela nous permet de corriger ou modifier un precedent commit, il nous permet d’ajouter des fichiers aux modifications mais aussi de faire de nouveau message de commit pour respecter la norme “conventional commits”\ngit commit --amend -m “new message”\nAttention ne faites jamais ca sur une branche partage avec d’autres personnes qui travaille dessus, car ca supprime le commit, donc a faire que sur du travail pas push.",
+		   "answerImage": "",
+		   "tags": ["git"]
+	  },
+	  {
+		  "id": "016",
+		  "question": "c’est quoi git squash ? et comment / pourquoi l’utiliser ?",
+		  "questionImage": "",
+		  "answer": "git squash n’est pas une commande git, mais une action qu’on peut faire. il s’agit de faire un “squash” de commit, c’est a dire de les compresser.\nOn peut vouloir faire ca parce qu’on a des commits pas propre et qu’on veut tout assembler ou compresser plusierus commits qui ont le meme scope mais qu’on avait divise.\nOn peut meme squash une branche entiere si on le souhaite.\nPour faire le squash on peut faire ;\ngit rebase -i HEAD~<nombre de commit qu’on veut squash> ⇒ on va etre en mode interactif\nLe mode interactf va donner des indication sur ce qu’on veut faire\ngit merge --squash <nom de la branche> pour merge et squash la branche entierement",
+		   "answerImage": "",
+		   "tags": ["git"]
+	  },
+	  {
+		  "id": "017",
+		  "question": "Quelle est la différence entre git switch et git checkout ?",
+		  "questionImage": "",
+		  "answer": "Git checkout est une commande qui fait plusieurs choses a la fois en fonction des cas; changer de branche, restore un fichier, etc….\nOn peut faire git checkout <branch> pour changer de branche ou pour recuperer une branche a distance qu’on a pas.\nIntroduit plusieurs version plus tards, git switch permet de separer un peu les utilisation de checkout (sans le deprecier pour autant)\ngit switch permet de cahnger de branche mais aussi de creer avec un flag --create",
+		   "answerImage": "",
+		   "tags": ["git"]
+	  },
+	  {
+		  "id": "018",
+		  "question": "Qu’est-ce que le HEAD  et detached HEAD dans Git ?",
+		  "questionImage": "",
+		  "answer": "HEAD dans git est le point de reference de la branche que vous regardez en local. Un detached HEAD arrive quand vous etes en plein rebase et que vous rejouez tous les commits, ou alors quand vous allez avec checkout revoir un etat precedent. C’est un moyen de vous avertir que ce n’est pas le dernier commit actuel et que vous n’etes pas sur une branche. Tout commit fait ici n’est rattache a rien.  Si vous avez fait des commits en detached HEAD, il suffit de faire une branche immediatement pour que ca soit rattache.",
+		   "answerImage": "",
+		   "tags": ["git"]
+	  },
+	  {
+		  "id": "019",
+		  "question": "Quel algo de hashage est utilise sur git ? et a quoi ca sert ?",
+		  "questionImage": "",
+		  "answer": "On utilise l’algorithme SHA1.\nCela sert a identifier les differents commits. Avec un git log vous pourrez voir les hash qui vous permettent de revenir en arriere si necessaire.\nAvec un git log --oneline on ne voit que les 7 premiers char, car c’est suffisant pour les distnguer sans de risque de tomber sur un autre hash (theorie car collision toujours possible).\nOn peut techniquement avoir une meilleur version avec SHA256 mais SHA1 reste le cas majeur (si vous avez repondu 256 c’est ok)",
+		   "answerImage": "",
+		   "tags": ["git"]
+	  },
+	  {
+		  "id": "020",
+		  "question": "qu’est ce qu’une branche ? et pourquoi utiliser des branches ?",
+		  "questionImage": "",
+		  "answer": "Sur git une branche est juste un pointeur vers une autre serie de commit different du main.  Cela permet d’avoir librement des espaces de developpement differents sans impacte l’origine / la version de base du projet. C’est utiliser pour collaborer avec differentes personnes et implementer differentes features par le biais de merge / rebase / pull request etc….",
+		   "answerImage": "",
+		   "tags": ["git"]
 	  }
 ]
