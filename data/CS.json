@@ -223,6 +223,173 @@
 		"answer": "Un load balancer c’est un outil  qui permet de diriger le traffic entrant pour repartir entre different serveurs.\nIl peut prendre la forme d’un software (NGINX) comme d’un outil cloud ou d’un outil hardware.\nCa permet d’eviter d’avoir des problemes d’acces, si il y a enormement de connections d’un coup.\nIl existe differentes strategies et algorithmes pour faire ca ; Robin tour (chaque connection a un server different), Least Connections (le serveur qui a moins de connection), IP Hash",
 		"answerImage": "",
 		"tags": ["CS"]
+  },
+  {
+	  	"id": "031",
+    		"question": "c’est quoi la stack (memoire) ?",
+    		"questionImage": "",
+    		"answer": "La Stack est la zone de mémoire dédiée à l'allocation automatique d'un programme.\\nStack signifie \"pile\". Comme une pile d’assiettes, on ajoute des éléments par-dessus les autres, et pour enlever un élément, on doit obligatoirement retirer le dernier ajouté (LIFO : Last In, First Out).\\nCette zone de la RAM contient ce qu’on appelle des Stack Frames. Chaque stack frame correspond à l’appel d’une fonction et stocke ses variables locales ainsi que son adresse de retour. Quand la fonction se termine, sa frame est instantanément détruite. C’est une mémoire ultra-rapide pour le processeur, mais qui a le défaut d’être limitée en taille (environ 8 Mo par défaut sur Linux). Si on la dépasse, c'est le fameux plantage Stack Overflow.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "032",
+    		"question": "c’est quoi la heap (memoire) ?",
+    		"questionImage": "",
+    		"answer": "La heap c’est la memoire dynamique d’un programme.\\nEn opposition a la stack, la heap qui est aussi sur la RAM a une limite plus grande. C’est un tas, un peu comme un entrepot. C’est plus lent que la stack, car ici on doit trouver dans notre entrepot ou on avait stocke les blocs de memoire (c’est une operation que l’ordinateur realise pour nous).\\nOn va l’utiliser quand on veut utiliser un bloc de memoire qui depasse la duree de vie de la fonction qui l’a cree ou quand on ne connait pas la taille du bloc de memoire a l’avance.\\nPour ca en C on utilise malloc, et en C++ new.\\nA la difference de la stack, cette memoire ne se libere pas automatiquement, il faut le faire manuellement.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "033",
+    		"question": "c’est quoi un VLA (variable length array) ? Est ce que c’est bien ou pas bien ?",
+    		"questionImage": "",
+    		"answer": "un VLA c’est un tableau ou on ne declare pas sa taille de maniere fixe mais avec une variable;\\n int tab[variable];\\nCette variable est dependante d’une variable qui est calcule ailleurs ou dependante d’une entre utilisateur.\\nC’est mauvais car risque de stack overflow, aucun moyen de check si fail compare a une allocation de memoire sur la heap avec malloc/new.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "034",
+    		"question": "c’est quoi un stack overflow ?",
+    		"questionImage": "",
+    		"answer": "Un stack overflow arrive lorsqu’on depasse la limite de la memoire stack d’un programme.\\nA ce moment la cela cree un arret du programme (un crash).\\nCa peut arriver a cause d’une recursion trop importante ou alors d’un tableau sur la stack qui aurait une taille trop importante utilise par exemple.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "035",
+    		"question":"c’est quoi un segfault ?",
+    		"questionImage": "",
+    		"answer": "Un segfault, ou SIGSEV, est une erreur qui arrive lorsque l’on essaie d’acceder a un bloc de memoire qui n’est pas accessible, pas allouer au prealable. Ca cause un crash du programme.  Ca peut arriver par exemple, si on dereference un pointeur qui est null.  Ou alors quand on essaie de modifier une valuer qui est readonly , comme benjamin pendant la piscine au premier exam (char *test = “chat”; test[0] = ‘C’).",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  		},
+  {
+    		"id": "036",
+    		"question": "c’est quoi la RAM ?",
+    		"questionImage": "",
+    		"answer": "C’est la memoire a acces aleatoire. C’est la memoire court terme de l’ordinateur. C’est la memoire qui est utilise pour pour aller plus vite sur les programmes et fichiers lorsqu’on travaille dessus. Car l’ecriture sur disque dur est plus lent.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "037",
+    		"question": "qu’est ce que c’est que c’est que les champs qui apparaissent sur cette image de valgrind ?",
+    		"questionImage": "",
+    		"answer": "”definitely lost” = c’est de la memoire qu’on a alloue manuellement, qu’on n’a pas de alloue a la fin de notre programme\\n”inderictly lost” = c’est une fuite de memoire qui arrive en manipulant une structure gere par pointeur (tree, liste chainee)\\n”possibly lost” = c’est une fuite de memoire a moins d’operations assez special qui se charge de libere la memoire mais dont valgring n’arrive pas a suivre\\n“still reachable” = (debat souvent a 42), c’est la memoire qui  leak mais qui est recupere par l’OS. Il faut bien la libere et ideallement la bonne pratique mettre le pointeur a NULL surtout si on le recupere.\\n”suppressed” = avec valgrind on peut lui preciser avec certaines commandes d’ignorer certaines allocation et donc des leaks resultant de cette allocation de memoire.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "038",
+    		"question": "c’est quoi un integer overflow ?",
+    		"questionImage": "",
+    		"answer": "Comme toute chose, dans un ordinateur, tout est du binaire. Un integer (4 bytes / octet meme si c’est implementation defined), quand on l’augmente on ajoute des 1 au binaire. Seulement a un moment donne, on va arrive a la limite, qui est 2147483647. On va alors changer le bit de signe et on va alors se retrouver a faire un wrap around donc une valeur negative. On fait un tour. Bien sur, sur un unsigned c’est retour a 0.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "039",
+    		"question": "c’est quoi le backtracking ?",
+    		"questionImage": "",
+    		"answer": "Le backtracking c’est un algorithme qui utilise la recursion pour trouver la solution a un probleme. Ca permet d’explorer plusieurs chemins jusqu’a trouver le bon grace a une condition d’arret.\\nSi on se rend compte que ce chemin est mauvais, on backtrack, on rebrousse chemin pour tester d’autres possibilite.\\nOn utilise ce genre d’algorithme quand on a besoin de tester jusqu’a trouve la solution comme par exemple; la sortie d’un labyrinthe. Attention le backtracking n’est pas DFS ou BFS.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "040",
+    		"question": "c’est quoi la recursion ?",
+    		"questionImage": "",
+    		"answer": "La recursion c’est lorsqu’une fonction va s’appeller elle meme pour resoudre un probleme plus petit.\\nOn a une condition d’arret, le base case qui vient nous donner la solution au probleme.\\nOn l’oppose a l’iteratif. ou on fait une boucle. Il faut faire attention en python, 1000 appel recursif ⇒ ca crash /  en C++ on va pouvoir en faire plus mais comme on fait bcp de stack frame il faut faire attention.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "041",
+    		"question": "c’est quoi un buffer overflow ?",
+    		"questionImage": "",
+    		"answer": "un buffer overflow arrive quand on utilise un bloc de memoire, et qu’on depasse sa capacite pour agir dessus. C’est UB qui peut causer un segfault. C’est aussi en cybersecurite un moyen de hack un programme.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "042",
+    		"question": "C’est quoi BFS et DFS en algorithmie et la difference entre les deux ?",
+    		"questionImage": "",
+    		"answer": "BFS = Breadth First Search\\nDFS = Depth First Search\\nCe sont des algorithmes pour parcourir des structures de donnes. Mais ils ont une approche differentes pour parcourir et trouver une solution. Le BFS lui va parcourir tous les noeuds/choix du meme niveau avant de continuer. Alors que le le DFS va aller jusqu’au bout d’un noeuf/choix avant de revenir en arriere pour explorer d’autres chemins.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "043",
+    		"question": "c’est quoi la difference entre test unitaire et test fonctionnel ?",
+    		"questionImage": "",
+    		"answer": "un test unitaire va faire un check d’une partie du code la plus petite possible, une fonction, une methode, une classe. Elle ne depend jamais du reste du reste du systeme donc on peut faire des mocks (=tout ce qui est necessarie pour le faire fonctionner)\\n un test fonctionnel c’est un test sur le programme en entier. On veut valider l’utilisation final du projet.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "044",
+    		"question": "Combien il y a de ports au total sur un ordinateur ? Comment sont ils divises ?",
+    		"questionImage": "",
+    		"answer": "Il y en a 65536 (numérotés de 0 à 65535), cette valeur vient du fait que c’est code sur 16 bits.\\nDe 0 a 1023 c’est les ports dit “classiques” qui sont reserve aux systemes classiques et modifiable que en etant root.\\nDe 1024 a 49151 c’est des ports pour applications specifiques.\\nLe reste est considere comme temporaire / dynamique.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "045",
+    		"question": "Quel service sur le port 21 ?",
+    		"questionImage": "",
+    		"answer": "FTP File Transfer Protocol",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "046",
+    		"question": "Quel service sur le port 22?",
+    		"questionImage": "",
+    		"answer": "SSH",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "047",
+    		"question": "Quel service sur le port 53?",
+    		"questionImage": "",
+    		"answer": "DNS Domain Name System",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "048",
+    		"question": "Quel service sur le port 80 ?",
+    		"questionImage": "",
+    		"answer": "HTTP",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "049",
+    		"question": "Quel service sur le port 443 ?",
+    		"questionImage": "",
+    		"answer": "HTTPS",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "050",
+    		"question": "ca veut dire quoi l’acronyme TCP et UDP ? et qu’est ce que c’est globalement ?",
+    		"questionImage": "",
+    		"answer": "TCP = Transfer Control Protocol\\nUDP = User Datagram Protocol\\nTCP est un protocol qui s’assure que les packets sont bien arrive dans l’ordre grace a un systeme de three-way handshake.\\nTandis que UDP est un protocol qui communique sans verifier que les packets arrivent.\\nLe TCP est par exemple utilise sur les sites internet alors que UDP c’est pour du streaming video.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "051",
+    		"question": "C’est quoi la “CIA Triad” en cybersecurite ?",
+    		"questionImage": "",
+    		"answer": "C = Confidentialite\\nI = Integrite\\nA = Availability (= disponibilite)\\n C’est un modele ou chaque point doit etre present, sinon cela implique que le systeme n’est pas pa securise.\\nLa Confidentialite = Les donnees sont secretes, connus que par les personnes qui doivent y avoir acces\\nL’integrite = on s’assure que les donnees ont pas etait manipulees ou modifie\\nAvailability = les donnees sont disponibles quand l’utilisateur souhaite avoir acces.",
+    		"answerImage": "",
+    		"tags": ["CS"]
   }
-
 ]

@@ -30,5 +30,13 @@
 		"answer": "std::array est sur la stack, c’est un tableau fixe comme on peut le voir en C.\nstd::vector est un tableau dynamique, il va reallouer sa propre taille tout seul au fur et a mesure.\nOn pourrait bien sur mettre std::array sur la heap avec un new mais on prefere eviter car on a deja mieux implementer.\nstd::array presente quand meme des avantages a un array C like, avec des methodes at() ou size() qui permettent de verifier le debordement. Plus il a des avantages d’etres precis sur la memoire qu’on a.",
 		"answerImage": "",
 		"tags": ["C++"]
+	},
+	{
+		"id": "005",
+		"question": "C’est quoi les etapes de la compilation d’un programme en C / C++ ?",
+    		"questionImage": "",
+    		"answer": "Etape 1 preprocessing; on enleve les commentaires, on gere les #includes, les #define et tout ce qui est lie au sigle #\\nEtape 2 compilation; check de syntax, et transformation du code en assembleur. Mais c’est aussi ici qu’il y a les optimisations\\nEtape 3 assembly; de l’assembleur on va traduire en code machine, c’est ici qu’on obtient les object files et on ne peut plus lire les fichiers.\\nEtape 4 Linker; on va lier nos object files avec les bibliotheques externes pour creer notr executable.",
+    		"answerImage": "",
+    		"tags": ["C++"]
 	}
 ]
