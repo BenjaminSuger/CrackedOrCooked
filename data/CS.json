@@ -277,7 +277,7 @@
     		"question": "qu’est ce que c’est que c’est que les champs qui apparaissent sur cette image de valgrind ?",
     		"questionImage": "",
     		"answer": "”definitely lost” = c’est de la memoire qu’on a alloue manuellement, qu’on n’a pas de alloue a la fin de notre programme\\n”inderictly lost” = c’est une fuite de memoire qui arrive en manipulant une structure gere par pointeur (tree, liste chainee)\\n”possibly lost” = c’est une fuite de memoire a moins d’operations assez special qui se charge de libere la memoire mais dont valgring n’arrive pas a suivre\\n“still reachable” = (debat souvent a 42), c’est la memoire qui  leak mais qui est recupere par l’OS. Il faut bien la libere et ideallement la bonne pratique mettre le pointeur a NULL surtout si on le recupere.\\n”suppressed” = avec valgrind on peut lui preciser avec certaines commandes d’ignorer certaines allocation et donc des leaks resultant de cette allocation de memoire.",
-    		"answerImage": "",
+    		"answerImage": "images/CS/CS037.png",
     		"tags": ["CS"]
   },
   {
