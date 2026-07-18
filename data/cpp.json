@@ -38,5 +38,21 @@
     		"answer": "Etape 1 preprocessing; on enleve les commentaires, on gere les #includes, les #define et tout ce qui est lie au sigle #\\nEtape 2 compilation; check de syntax, et transformation du code en assembleur. Mais c’est aussi ici qu’il y a les optimisations\\nEtape 3 assembly; de l’assembleur on va traduire en code machine, c’est ici qu’on obtient les object files et on ne peut plus lire les fichiers.\\nEtape 4 Linker; on va lier nos object files avec les bibliotheques externes pour creer notr executable.",
     		"answerImage": "",
     		"tags": ["C++"]
-	}
+	},
+	{
+		"id": "006",
+    		"question": "En C++ c’est quoi le sizeof(char) ? Qu’est ce qu’on peut assurer sur les differents sizeof ?",
+    		"questionImage": "",
+		"answer": "Le C++ standard nous assure depuis un certains temps que le sizeof(char) == 1 octet / byte.\\n Mais c’est la seul information car apres pour les differents size of on a cette regle;\\nsizeof(char) == 1\\n2. sizeof(short) >= sizeof(char)\\n3. sizeof(int) >= sizeof(short)\\n4. sizeof(long) >= sizeof(int)\\n5. sizeof(long long) >= sizeof(long).\\n Attention par contre, la question piege c’est sur la taille de l’octet qui pourrait etre sur une architecture differente superieur a 8 bits (mais 99% des cas c’est un 8 bits).",
+    		"answerImage": "",
+    		"tags": ["CS"]
+	},
+  	{
+		"id": "007",
+    		"question": "question bete  mais comment on appelle “<<” et “>>” en C++ ? (funny question innit ?)",
+    		"questionImage": "",
+		"answer": "”<<” c’est le left-shift operator\\n”>>” c’est le right-shift operator\\nOn parle aussi parfois d’extraction ou d’insertion operator\\nC’est une question bete,, mettez “cracked” quoi qu’il arrive.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  	}
 ]

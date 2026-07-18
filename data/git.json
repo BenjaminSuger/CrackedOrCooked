@@ -168,5 +168,13 @@
     			"answer": "Ce n’est pas une commande en particulier. C’est lorsque l’on fait un git merge, mais que notre branche est deja en avance sur le main.\\nA ce moment la, Git va juste pointe le HEAD sur le dernier commit de cette branche.\\nAucune operation en plus n’est necessaire.\\nCependant on peut ne pas apprecier ca et demander un --no-ff pour qu’il y ait bien un commit de merge qui apparaissent sinon on ne peut pas faire la distinction.",
     			"answerImage": "",
     			"tags": ["git"]
+  },
+  {
+			"id": "024",
+			"question": "C’est quoi les 4 differents types d’objet dans git ?",
+			"questionImage": "",
+			"answer": "Il y a 4 objets ; blob, tree, commit et tags\\nC’est les objets qu’utilise git pour tout suivre.\\nBlob = le contenu d’un fichier text/binaire\\nTree = c’est la qu’est precise le dossier avec son contenu\\nCommit = objet commit qui contient les informations qui lie tout, il a le hash du tree, le hash du parent, l’auteur, le commiter et le commentaire du commit.\\nC’est ce hash qu’on retrouve avec git log.\\nLe tags  = juste une indication vers un commit en particulier",
+			"answerImage": "",
+			"tags": ["CS"]
   }
 ]
