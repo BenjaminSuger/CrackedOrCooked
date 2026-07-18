@@ -228,7 +228,7 @@
 	  	"id": "031",
     		"question": "c’est quoi la stack (memoire) ?",
     		"questionImage": "",
-    		"answer": "La Stack est la zone de mémoire dédiée à l'allocation automatique d'un programme.\\nStack signifie \"pile\". Comme une pile d’assiettes, on ajoute des éléments par-dessus les autres, et pour enlever un élément, on doit obligatoirement retirer le dernier ajouté (LIFO : Last In, First Out).\\nCette zone de la RAM contient ce qu’on appelle des Stack Frames. Chaque stack frame correspond à l’appel d’une fonction et stocke ses variables locales ainsi que son adresse de retour. Quand la fonction se termine, sa frame est instantanément détruite. C’est une mémoire ultra-rapide pour le processeur, mais qui a le défaut d’être limitée en taille (environ 8 Mo par défaut sur Linux). Si on la dépasse, c'est le fameux plantage Stack Overflow.",
+    		"answer": "La Stack est la zone de mémoire dédiée à l'allocation automatique d'un programme.\nStack signifie \"pile\". Comme une pile d’assiettes, on ajoute des éléments par-dessus les autres, et pour enlever un élément, on doit obligatoirement retirer le dernier ajouté (LIFO : Last In, First Out).\nCette zone de la RAM contient ce qu’on appelle des Stack Frames. Chaque stack frame correspond à l’appel d’une fonction et stocke ses variables locales ainsi que son adresse de retour. Quand la fonction se termine, sa frame est instantanément détruite. C’est une mémoire ultra-rapide pour le processeur, mais qui a le défaut d’être limitée en taille (environ 8 Mo par défaut sur Linux). Si on la dépasse, c'est le fameux plantage Stack Overflow.",
     		"answerImage": "",
     		"tags": ["CS"]
   },
@@ -236,7 +236,7 @@
     		"id": "032",
     		"question": "c’est quoi la heap (memoire) ?",
     		"questionImage": "",
-    		"answer": "La heap c’est la memoire dynamique d’un programme.\\nEn opposition a la stack, la heap qui est aussi sur la RAM a une limite plus grande. C’est un tas, un peu comme un entrepot. C’est plus lent que la stack, car ici on doit trouver dans notre entrepot ou on avait stocke les blocs de memoire (c’est une operation que l’ordinateur realise pour nous).\\nOn va l’utiliser quand on veut utiliser un bloc de memoire qui depasse la duree de vie de la fonction qui l’a cree ou quand on ne connait pas la taille du bloc de memoire a l’avance.\\nPour ca en C on utilise malloc, et en C++ new.\\nA la difference de la stack, cette memoire ne se libere pas automatiquement, il faut le faire manuellement.",
+    		"answer": "La heap c’est la memoire dynamique d’un programme.\nEn opposition a la stack, la heap qui est aussi sur la RAM a une limite plus grande. C’est un tas, un peu comme un entrepot. C’est plus lent que la stack, car ici on doit trouver dans notre entrepot ou on avait stocke les blocs de memoire (c’est une operation que l’ordinateur realise pour nous).\nOn va l’utiliser quand on veut utiliser un bloc de memoire qui depasse la duree de vie de la fonction qui l’a cree ou quand on ne connait pas la taille du bloc de memoire a l’avance.\nPour ca en C on utilise malloc, et en C++ new.\nA la difference de la stack, cette memoire ne se libere pas automatiquement, il faut le faire manuellement.",
     		"answerImage": "",
     		"tags": ["CS"]
   },
@@ -244,7 +244,7 @@
     		"id": "033",
     		"question": "c’est quoi un VLA (variable length array) ? Est ce que c’est bien ou pas bien ?",
     		"questionImage": "",
-    		"answer": "un VLA c’est un tableau ou on ne declare pas sa taille de maniere fixe mais avec une variable;\\n int tab[variable];\\nCette variable est dependante d’une variable qui est calcule ailleurs ou dependante d’une entre utilisateur.\\nC’est mauvais car risque de stack overflow, aucun moyen de check si fail compare a une allocation de memoire sur la heap avec malloc/new.",
+    		"answer": "un VLA c’est un tableau ou on ne declare pas sa taille de maniere fixe mais avec une variable;\n int tab[variable];\nCette variable est dependante d’une variable qui est calcule ailleurs ou dependante d’une entre utilisateur.\nC’est mauvais car risque de stack overflow, aucun moyen de check si fail compare a une allocation de memoire sur la heap avec malloc/new.",
     		"answerImage": "",
     		"tags": ["CS"]
   },
@@ -252,7 +252,7 @@
     		"id": "034",
     		"question": "c’est quoi un stack overflow ?",
     		"questionImage": "",
-    		"answer": "Un stack overflow arrive lorsqu’on depasse la limite de la memoire stack d’un programme.\\nA ce moment la cela cree un arret du programme (un crash).\\nCa peut arriver a cause d’une recursion trop importante ou alors d’un tableau sur la stack qui aurait une taille trop importante utilise par exemple.",
+    		"answer": "Un stack overflow arrive lorsqu’on depasse la limite de la memoire stack d’un programme.\nA ce moment la cela cree un arret du programme (un crash).\nCa peut arriver a cause d’une recursion trop importante ou alors d’un tableau sur la stack qui aurait une taille trop importante utilise par exemple.",
     		"answerImage": "",
     		"tags": ["CS"]
   },
@@ -276,7 +276,7 @@
     		"id": "037",
     		"question": "qu’est ce que c’est que c’est que les champs qui apparaissent sur cette image de valgrind ?",
     		"questionImage": "",
-    		"answer": "”definitely lost” = c’est de la memoire qu’on a alloue manuellement, qu’on n’a pas de alloue a la fin de notre programme\\n”inderictly lost” = c’est une fuite de memoire qui arrive en manipulant une structure gere par pointeur (tree, liste chainee)\\n”possibly lost” = c’est une fuite de memoire a moins d’operations assez special qui se charge de libere la memoire mais dont valgring n’arrive pas a suivre\\n“still reachable” = (debat souvent a 42), c’est la memoire qui  leak mais qui est recupere par l’OS. Il faut bien la libere et ideallement la bonne pratique mettre le pointeur a NULL surtout si on le recupere.\\n”suppressed” = avec valgrind on peut lui preciser avec certaines commandes d’ignorer certaines allocation et donc des leaks resultant de cette allocation de memoire.",
+    		"answer": "”definitely lost” = c’est de la memoire qu’on a alloue manuellement, qu’on n’a pas de alloue a la fin de notre programme\n”inderictly lost” = c’est une fuite de memoire qui arrive en manipulant une structure gere par pointeur (tree, liste chainee)\n”possibly lost” = c’est une fuite de memoire a moins d’operations assez special qui se charge de libere la memoire mais dont valgring n’arrive pas a suivre\n“still reachable” = (debat souvent a 42), c’est la memoire qui  leak mais qui est recupere par l’OS. Il faut bien la libere et ideallement la bonne pratique mettre le pointeur a NULL surtout si on le recupere.\n”suppressed” = avec valgrind on peut lui preciser avec certaines commandes d’ignorer certaines allocation et donc des leaks resultant de cette allocation de memoire.",
     		"answerImage": "images/CS/CS037.png",
     		"tags": ["CS"]
   },
@@ -292,7 +292,7 @@
     		"id": "039",
     		"question": "c’est quoi le backtracking ?",
     		"questionImage": "",
-    		"answer": "Le backtracking c’est un algorithme qui utilise la recursion pour trouver la solution a un probleme. Ca permet d’explorer plusieurs chemins jusqu’a trouver le bon grace a une condition d’arret.\\nSi on se rend compte que ce chemin est mauvais, on backtrack, on rebrousse chemin pour tester d’autres possibilite.\\nOn utilise ce genre d’algorithme quand on a besoin de tester jusqu’a trouve la solution comme par exemple; la sortie d’un labyrinthe. Attention le backtracking n’est pas DFS ou BFS.",
+    		"answer": "Le backtracking c’est un algorithme qui utilise la recursion pour trouver la solution a un probleme. Ca permet d’explorer plusieurs chemins jusqu’a trouver le bon grace a une condition d’arret.\nSi on se rend compte que ce chemin est mauvais, on backtrack, on rebrousse chemin pour tester d’autres possibilite.\nOn utilise ce genre d’algorithme quand on a besoin de tester jusqu’a trouve la solution comme par exemple; la sortie d’un labyrinthe. Attention le backtracking n’est pas DFS ou BFS.",
     		"answerImage": "",
     		"tags": ["CS"]
   },
@@ -300,7 +300,7 @@
     		"id": "040",
     		"question": "c’est quoi la recursion ?",
     		"questionImage": "",
-    		"answer": "La recursion c’est lorsqu’une fonction va s’appeller elle meme pour resoudre un probleme plus petit.\\nOn a une condition d’arret, le base case qui vient nous donner la solution au probleme.\\nOn l’oppose a l’iteratif. ou on fait une boucle. Il faut faire attention en python, 1000 appel recursif ⇒ ca crash /  en C++ on va pouvoir en faire plus mais comme on fait bcp de stack frame il faut faire attention.",
+    		"answer": "La recursion c’est lorsqu’une fonction va s’appeller elle meme pour resoudre un probleme plus petit.\nOn a une condition d’arret, le base case qui vient nous donner la solution au probleme.\nOn l’oppose a l’iteratif. ou on fait une boucle. Il faut faire attention en python, 1000 appel recursif ⇒ ca crash /  en C++ on va pouvoir en faire plus mais comme on fait bcp de stack frame il faut faire attention.",
     		"answerImage": "",
     		"tags": ["CS"]
   },
@@ -316,7 +316,7 @@
     		"id": "042",
     		"question": "C’est quoi BFS et DFS en algorithmie et la difference entre les deux ?",
     		"questionImage": "",
-    		"answer": "BFS = Breadth First Search\\nDFS = Depth First Search\\nCe sont des algorithmes pour parcourir des structures de donnes. Mais ils ont une approche differentes pour parcourir et trouver une solution. Le BFS lui va parcourir tous les noeuds/choix du meme niveau avant de continuer. Alors que le le DFS va aller jusqu’au bout d’un noeuf/choix avant de revenir en arriere pour explorer d’autres chemins.",
+    		"answer": "BFS = Breadth First Search\nDFS = Depth First Search\nCe sont des algorithmes pour parcourir des structures de donnes. Mais ils ont une approche differentes pour parcourir et trouver une solution. Le BFS lui va parcourir tous les noeuds/choix du meme niveau avant de continuer. Alors que le le DFS va aller jusqu’au bout d’un noeuf/choix avant de revenir en arriere pour explorer d’autres chemins.",
     		"answerImage": "",
     		"tags": ["CS"]
   },
@@ -324,7 +324,7 @@
     		"id": "043",
     		"question": "c’est quoi la difference entre test unitaire et test fonctionnel ?",
     		"questionImage": "",
-    		"answer": "un test unitaire va faire un check d’une partie du code la plus petite possible, une fonction, une methode, une classe. Elle ne depend jamais du reste du reste du systeme donc on peut faire des mocks (=tout ce qui est necessarie pour le faire fonctionner)\\n un test fonctionnel c’est un test sur le programme en entier. On veut valider l’utilisation final du projet.",
+    		"answer": "un test unitaire va faire un check d’une partie du code la plus petite possible, une fonction, une methode, une classe. Elle ne depend jamais du reste du reste du systeme donc on peut faire des mocks (=tout ce qui est necessarie pour le faire fonctionner)\n un test fonctionnel c’est un test sur le programme en entier. On veut valider l’utilisation final du projet.",
     		"answerImage": "",
     		"tags": ["CS"]
   },
@@ -332,7 +332,7 @@
     		"id": "044",
     		"question": "Combien il y a de ports au total sur un ordinateur ? Comment sont ils divises ?",
     		"questionImage": "",
-    		"answer": "Il y en a 65536 (numérotés de 0 à 65535), cette valeur vient du fait que c’est code sur 16 bits.\\nDe 0 a 1023 c’est les ports dit “classiques” qui sont reserve aux systemes classiques et modifiable que en etant root.\\nDe 1024 a 49151 c’est des ports pour applications specifiques.\\nLe reste est considere comme temporaire / dynamique.",
+    		"answer": "Il y en a 65536 (numérotés de 0 à 65535), cette valeur vient du fait que c’est code sur 16 bits.\nDe 0 a 1023 c’est les ports dit “classiques” qui sont reserve aux systemes classiques et modifiable que en etant root.\nDe 1024 a 49151 c’est des ports pour applications specifiques.\nLe reste est considere comme temporaire / dynamique.",
     		"answerImage": "",
     		"tags": ["CS"]
   },
@@ -380,7 +380,7 @@
     		"id": "050",
     		"question": "ca veut dire quoi l’acronyme TCP et UDP ? et qu’est ce que c’est globalement ?",
     		"questionImage": "",
-    		"answer": "TCP = Transfer Control Protocol\\nUDP = User Datagram Protocol\\nTCP est un protocol qui s’assure que les packets sont bien arrive dans l’ordre grace a un systeme de three-way handshake.\\nTandis que UDP est un protocol qui communique sans verifier que les packets arrivent.\\nLe TCP est par exemple utilise sur les sites internet alors que UDP c’est pour du streaming video.",
+    		"answer": "TCP = Transfer Control Protocol\nUDP = User Datagram Protocol\nTCP est un protocol qui s’assure que les packets sont bien arrive dans l’ordre grace a un systeme de three-way handshake.\nTandis que UDP est un protocol qui communique sans verifier que les packets arrivent.\nLe TCP est par exemple utilise sur les sites internet alors que UDP c’est pour du streaming video.",
     		"answerImage": "",
     		"tags": ["CS"]
   },
@@ -388,7 +388,7 @@
     		"id": "051",
     		"question": "C’est quoi la “CIA Triad” en cybersecurite ?",
     		"questionImage": "",
-    		"answer": "C = Confidentialite\\nI = Integrite\\nA = Availability (= disponibilite)\\n C’est un modele ou chaque point doit etre present, sinon cela implique que le systeme n’est pas pa securise.\\nLa Confidentialite = Les donnees sont secretes, connus que par les personnes qui doivent y avoir acces\\nL’integrite = on s’assure que les donnees ont pas etait manipulees ou modifie\\nAvailability = les donnees sont disponibles quand l’utilisateur souhaite avoir acces.",
+    		"answer": "C = Confidentialite\nI = Integrite\nA = Availability (= disponibilite)\n C’est un modele ou chaque point doit etre present, sinon cela implique que le systeme n’est pas pa securise.\nLa Confidentialite = Les donnees sont secretes, connus que par les personnes qui doivent y avoir acces\nL’integrite = on s’assure que les donnees ont pas etait manipulees ou modifie\nAvailability = les donnees sont disponibles quand l’utilisateur souhaite avoir acces.",
     		"answerImage": "",
     		"tags": ["CS"]
   },
@@ -396,7 +396,7 @@
 		"id": "052",
     		"question": "Dans les techniques d’algorithmie (comme sur leetcode) ; qu’est ce que le dynamic programming ?",
     		"questionImage": "",
-		"answer": "C’est une optimisation de la recursion. On va stocker le resultat du precedent calcul / traitement du sous probleme pour l’utiliser dans le prochain traitement du sous probleme suivant. Exemple ; Le probleme du Nth Nombre de Fibonacci.\\nOn parle de “memoization” c’est a dire de reduction de temps de calcul mais avec un trade off sur la memoire.\\nLa condition pour avoir du dynamic programming c’est d’avoir des sous problemes qui se chevauchent.",
+		"answer": "C’est une optimisation de la recursion. On va stocker le resultat du precedent calcul / traitement du sous probleme pour l’utiliser dans le prochain traitement du sous probleme suivant. Exemple ; Le probleme du Nth Nombre de Fibonacci.\nOn parle de “memoization” c’est a dire de reduction de temps de calcul mais avec un trade off sur la memoire.\nLa condition pour avoir du dynamic programming c’est d’avoir des sous problemes qui se chevauchent.",
     		"answerImage": "",
     		"tags": ["CS"]
   },
@@ -404,7 +404,7 @@
 		    "id":"053",
     		"question": "Dans les techniques d’algorithmie (comme sur leetcode); qu’est ce que two pointers ?",
     		"questionImage": "",
-		"answer": "C’est une strategie ou on utilise 2 pointeurs, un au debut de notre structure de donnee, l’autre a la fin.\\nCe qui sous-entend qu’on a donc des structures de donnes qui sont lineaires comme un tableau, une linked list etc…..\\nL’avantage de cette technique est d’essayer d’eviter les boucles imbriques et d’avoir un O(N).",
+		"answer": "C’est une strategie ou on utilise 2 pointeurs, un au debut de notre structure de donnee, l’autre a la fin.\nCe qui sous-entend qu’on a donc des structures de donnes qui sont lineaires comme un tableau, une linked list etc…..\nL’avantage de cette technique est d’essayer d’eviter les boucles imbriques et d’avoir un O(N).",
     		"answerImage": "",
     		"tags": ["CS"]
   },
@@ -412,7 +412,7 @@
 		    "id":"054",
     		"question": "Dans les techniques d’algorithmie (comme sur leetcode); qu’est ce que le greedy algorithm ?",
     		"questionImage": "",
-		"answer": "La technique algorithmique greedy, essaie de resoudre un probleme, en realisant le choix le plus optimise possible a chaque etape.\\nCela ne mene pas forcement a la meilleur solution final global.\\nIl y a 2 criteres pour pratiquer ce genre d’algorithme ;\\n1. On peut reussir a obtenir un resultat sans faire de backtracking,\\n2. La solution optimale est trouvable en reolvant les sous problemes de maniere optimale (c’est pour ca qu’on utilise parfois plutot du dynamic programming)",
+		"answer": "La technique algorithmique greedy, essaie de resoudre un probleme, en realisant le choix le plus optimise possible a chaque etape.\nCela ne mene pas forcement a la meilleur solution final global.\nIl y a 2 criteres pour pratiquer ce genre d’algorithme ;\n1. On peut reussir a obtenir un resultat sans faire de backtracking,\n2. La solution optimale est trouvable en reolvant les sous problemes de maniere optimale (c’est pour ca qu’on utilise parfois plutot du dynamic programming)",
     		"answerImage": "",
     		"tags": ["CS"]
   },
@@ -420,7 +420,7 @@
 		"id": "055",
     		"question": "qu’est ce qu’on appelle WORD ? (en parlant de computer architecture) et on peut poser la question sur LES WORDS en x86 assembly",
     		"questionImage": "",
-		"answer": "Un WORD c’est une unite de donnees naturelle.\\nC’est la taille de la donnee qu’un processeur (CPU) peut traiter en une fois.\\nSur un ordinateur 32 bits, le WORD est de 32, et sur 64 bits de 64. Donc le processeur peut traiter directement des tailles de WORD sans faire de decoupage ou autres.\\nEn x86, c’est un peu different un WORD est historiquement de 16 bits, un DWORD de 32 bits et un QWORD de 64 bits pour des raisons historique et de compatibilite avec intel.",
+		"answer": "Un WORD c’est une unite de donnees naturelle.\nC’est la taille de la donnee qu’un processeur (CPU) peut traiter en une fois.\nSur un ordinateur 32 bits, le WORD est de 32, et sur 64 bits de 64. Donc le processeur peut traiter directement des tailles de WORD sans faire de decoupage ou autres.\nEn x86, c’est un peu different un WORD est historiquement de 16 bits, un DWORD de 32 bits et un QWORD de 64 bits pour des raisons historique et de compatibilite avec intel.",
     		"answerImage": "",
     		"tags": ["CS"]
   },
@@ -428,7 +428,7 @@
 		    "id":"056",
     		"question": "De quoi est compose le CPU ? (juste tout les elements)",
     		"questionImage": "",
-		"answer": "Pour le contrôle & guidage avec le CU (Control Unit), PC (Program Counter), IR (Instruction Register), Branch Predictor\\nPour le calcul / exécution avec l’ALU (Arithmetic Logic Unit), FPU (Floating Point Unit) et Unités Vectorielles (SIMD)\\nPour le stockage temporaire on a les Registres Généraux, Registres Spéciaux (dont le PC et l’IR)\\nPour la gestion Mémoire & Caches on retrouve les Caches L1 / L2 / L3, le MMU (Memory Management Unit), le TLB (Translation Lookaside Buffer)\\nPour la communication on a les Bus internes (Données, Adresses, Contrôle)",
+		"answer": "Pour le contrôle & guidage avec le CU (Control Unit), PC (Program Counter), IR (Instruction Register), Branch Predictor\nPour le calcul / exécution avec l’ALU (Arithmetic Logic Unit), FPU (Floating Point Unit) et Unités Vectorielles (SIMD)\nPour le stockage temporaire on a les Registres Généraux, Registres Spéciaux (dont le PC et l’IR)\nPour la gestion Mémoire & Caches on retrouve les Caches L1 / L2 / L3, le MMU (Memory Management Unit), le TLB (Translation Lookaside Buffer)\nPour la communication on a les Bus internes (Données, Adresses, Contrôle)",
     		"answerImage": "",
     		"tags": ["CS"]
   },
@@ -436,7 +436,7 @@
 		    "id":"057",
 		    "question": "Dans le contexte du CPU / compilateur c’est quoi l’inlining et outlining ?",
 		    "questionImage": "",
-		    "answer": "Le compilateur essaie de produire une code optimise pour le CPU. Pour ca il peut etre amenner a decide (en fonction des flags d’optimisation) de faire de l’inlining.\\nL’inlining c’est le fait de mettre des fonctions directement a l’interieur du corps d’une autre fonctions. Pour permettre de produire une code machine / assembly plus optimise, qui ne va pas chercher a utiliser la stack et a faire des operations en trop.\\nCependant, il ne peut pas le faire tout le temps et du coup fait de l’outlining.\\nL’outlining consiste donc a juste extraire des bouts du code pour les mettres dans des fonctions a part.\\nPar exemple du code qui ne s’execute pas toujours.",
+		    "answer": "Le compilateur essaie de produire une code optimise pour le CPU. Pour ca il peut etre amenner a decide (en fonction des flags d’optimisation) de faire de l’inlining.\nL’inlining c’est le fait de mettre des fonctions directement a l’interieur du corps d’une autre fonctions. Pour permettre de produire une code machine / assembly plus optimise, qui ne va pas chercher a utiliser la stack et a faire des operations en trop.\nCependant, il ne peut pas le faire tout le temps et du coup fait de l’outlining.\nL’outlining consiste donc a juste extraire des bouts du code pour les mettres dans des fonctions a part.\nPar exemple du code qui ne s’execute pas toujours.",
 		    "answerImage": "",
 		    "tags": ["CS"]
   },
@@ -444,7 +444,7 @@
 		    "id":"058",
 		    "question": "sur l’assembly x86 c’est quoi la difference entre la notation Intel et AT&T ?",
 		    "questionImage": "",
-		    "answer": "La syntaxe est differente, plusieurs points de difference ;\\nLa difference majeur, avec Intel le premier operand est la destination et le second la source, tandis que c’est l’inverse avec AT&T.\\nIntel a plus une logique de programmation int a = value;\\nAutre point important on va avoir des signes % avec AT&T qu’on aura pas avec Intel.\\n Il existe d’autres differences qui font qu’on prefere Intel le plus souvent a AT&T.",
+		    "answer": "La syntaxe est differente, plusieurs points de difference ;\nLa difference majeur, avec Intel le premier operand est la destination et le second la source, tandis que c’est l’inverse avec AT&T.\nIntel a plus une logique de programmation int a = value;\nAutre point important on va avoir des signes % avec AT&T qu’on aura pas avec Intel.\n Il existe d’autres differences qui font qu’on prefere Intel le plus souvent a AT&T.",
 		    "answerImage": "",
 		    "tags": ["CS"]
   },
@@ -452,7 +452,7 @@
 		    "id":"059",
 		    "question": "c’est quoi l’outil NASM pour ecrire de l’assembly ? et FASM ? (et les diff en general)",
 		    "questionImage": "",
-		    "answer": "NASM = Netwide Assembler\\nFASM = Flat Assembler\\nSont des outils, des assembleurs qui nous permettent de manier des code en assembly et de les transformer en object files avant le passage du linker.\\nFASM est tres rapide car ecrit en assembleur\\nNASM et FASM ont plusieurs differences de syntax\\nFASM integre un linker que NASM n’a pas.\\nLes deux visent a proposer une alternative pour GAS pour Unix\\Windows et la syntaxe AT&T qu’il utilise",
+		    "answer": "NASM = Netwide Assembler\nFASM = Flat Assembler\nSont des outils, des assembleurs qui nous permettent de manier des code en assembly et de les transformer en object files avant le passage du linker.\nFASM est tres rapide car ecrit en assembleur\nNASM et FASM ont plusieurs differences de syntax\nFASM integre un linker que NASM n’a pas.\nLes deux visent a proposer une alternative pour GAS pour Unix\\Windows et la syntaxe AT&T qu’il utilise",
 		    "answerImage": "",
 		    "tags": ["CS"]
   }

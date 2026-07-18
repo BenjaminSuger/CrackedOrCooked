@@ -149,7 +149,7 @@
     			"id": "021",
     			"question": "Quelle est la différence entre git fetch et git pull ?",
     			"questionImage": "",
-    			"answer": "Git fetch va juste aller chercher les informations des modifications du repo a distance.\\nGit Pull lui fait un git fetch mais aussi un git merge automatiquement (potentiellement git rebase en fonction des parametres)\\n",
+    			"answer": "Git fetch va juste aller chercher les informations des modifications du repo a distance.\nGit Pull lui fait un git fetch mais aussi un git merge automatiquement (potentiellement git rebase en fonction des parametres)\n",
     			"answerImage": "",
     			"tags": ["git"]
 	  },
@@ -157,7 +157,7 @@
     			"id": "022",
     			"question": "Qu’est ce que l’operation git merge ?",
     			"questionImage": "",
-    			"answer": "Git merge va prendre les 2 pointeurs de commit de 2 branches, va trouver un commit de base commun aux 2 branches.\\nDès que Git trouve un commit de base commun, il créera un nouveau « commit de merge » qui combine les changements de chaque séquence de commit de merge dans la file d'attente.\\nSi Git trouve des modifications au meme endroit, il va y avoir un conflit car il ne sait pas quelle vesrsion prendre et du coup va demander a un utilisateur de faire la modification necessaire.",
+    			"answer": "Git merge va prendre les 2 pointeurs de commit de 2 branches, va trouver un commit de base commun aux 2 branches.\nDès que Git trouve un commit de base commun, il créera un nouveau « commit de merge » qui combine les changements de chaque séquence de commit de merge dans la file d'attente.\nSi Git trouve des modifications au meme endroit, il va y avoir un conflit car il ne sait pas quelle vesrsion prendre et du coup va demander a un utilisateur de faire la modification necessaire.",
     			"answerImage": "",
     			"tags": ["git"]
   },
@@ -165,7 +165,7 @@
     			"id": "023",
     			"question": "Qu’est-ce qu’un fast-forward merge ?",
     			"questionImage": "",
-    			"answer": "Ce n’est pas une commande en particulier. C’est lorsque l’on fait un git merge, mais que notre branche est deja en avance sur le main.\\nA ce moment la, Git va juste pointe le HEAD sur le dernier commit de cette branche.\\nAucune operation en plus n’est necessaire.\\nCependant on peut ne pas apprecier ca et demander un --no-ff pour qu’il y ait bien un commit de merge qui apparaissent sinon on ne peut pas faire la distinction.",
+    			"answer": "Ce n’est pas une commande en particulier. C’est lorsque l’on fait un git merge, mais que notre branche est deja en avance sur le main.\nA ce moment la, Git va juste pointe le HEAD sur le dernier commit de cette branche.\nAucune operation en plus n’est necessaire.\nCependant on peut ne pas apprecier ca et demander un --no-ff pour qu’il y ait bien un commit de merge qui apparaissent sinon on ne peut pas faire la distinction.",
     			"answerImage": "",
     			"tags": ["git"]
   },
@@ -173,7 +173,7 @@
 			"id": "024",
 			"question": "C’est quoi les 4 differents types d’objet dans git ?",
 			"questionImage": "",
-			"answer": "Il y a 4 objets ; blob, tree, commit et tags\\nC’est les objets qu’utilise git pour tout suivre.\\nBlob = le contenu d’un fichier text/binaire\\nTree = c’est la qu’est precise le dossier avec son contenu\\nCommit = objet commit qui contient les informations qui lie tout, il a le hash du tree, le hash du parent, l’auteur, le commiter et le commentaire du commit.\\nC’est ce hash qu’on retrouve avec git log.\\nLe tags  = juste une indication vers un commit en particulier",
+			"answer": "Il y a 4 objets ; blob, tree, commit et tags\nC’est les objets qu’utilise git pour tout suivre.\nBlob = le contenu d’un fichier text/binaire\nTree = c’est la qu’est precise le dossier avec son contenu\nCommit = objet commit qui contient les informations qui lie tout, il a le hash du tree, le hash du parent, l’auteur, le commiter et le commentaire du commit.\nC’est ce hash qu’on retrouve avec git log.\nLe tags  = juste une indication vers un commit en particulier",
 			"answerImage": "",
 			"tags": ["CS"]
   }
