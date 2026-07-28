@@ -54,5 +54,37 @@
 		"answer": "”<<” c’est le left-shift operator\n”>>” c’est le right-shift operator\nOn parle aussi parfois d’extraction ou d’insertion operator\nC’est une question bete,, mettez “cracked” quoi qu’il arrive.",
     		"answerImage": "",
     		"tags": ["C++"]
+  	},
+	{
+	    	"id": "008",
+	    	"question": "Les differents type de famille de container en C++ ?",
+	    	"questionImage": "",
+	    	"answer": "En C++ la STL a plusieurs types de famille de container ;\nSequence containers ; structure de donnees lineaire comme les vectors, array,  list et forward list.\nAssociative containers ; structure de donnees ordonnees. On parle des sets et des maps\nUnordered Associative Containers; structure de donnees non ordonnees, on parle ici des unordered map et unordered set\nAdapters containers; c’est une interface differente qui utilise un container different en arriere plan, le plus souvent pour implementer une structure de donnee abstraite comme une stack ou une queue",
+	    	"answerImage": "",
+	    	"tags": ["C++"]
+	},
+	{
+		"id": "009",
+    		"question": "en C++ qu’est ce que la rule of 5 ? et pourquoi on parle de ca ?",
+    		"questionImage": "",
+    		"answer": "Le regle des 5 “stipule” que si on doit definir une des 5 fonctions speciales membre ;copy constructor\ncopy assignement operator\ndestructor\nmove constructor\nmove assignement operator\nAlors on doit tous les ecrires nous memes. Pourquoi ?\nParce que cela implique une gestion de la memoire d’une ressource en particulier (souvent un pointeur brut ou un fd) et on a donc a le gerer dans tous les cas de notre classe. En C++ moderne on favorise si possible la “rule of 0”",
+    		"answerImage": "",
+	    	"tags": ["C++"]
+  	},
+  	{
+		"id": "010",
+    		"question": "en C++ what is the rule of 0 ?",
+    		"questionImage": "",
+    		"answer": "En opposition a la “rule of five”, si possible on essaie de ne pas ecrire aucune des fonctions speciales membres\nOn prefere l’utilisation des smart pointers et du concept d’ownership pour eviter ca, ce qui rend la creation et l’utilisation d’une classe moins “bug prone”",
+    		"answerImage": "",
+    		"tags": ["C++"]
+  	},
+	{
+    		"id": "011",
+    		"question": "Quelle est la difference de comportement entre l’overflow d’un unsigned int et d’un signed int en C/C++ ?",
+    		"questionImage": "",
+    		"answer": "Question tres “entretien technique” like.\nLa difference reside dans la norme / standard. Un unisgned int redemarre a 0 est c’est un comportement defini alors que pour un signed int c’est un UB (Undefined Behaviors).\nCette difference a une reel implication sur l’optimisation, un signed int qui n’overflow pas dans la logique du compilateur car UB lui permet de faire des optimisations en assembly",
+    		"answerImage": "",
+    		"tags": ["C++"]
   	}
 ]
