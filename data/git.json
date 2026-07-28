@@ -64,5 +64,333 @@
 		  "question": "Que fait la commande git clone ?",
 		  "answer": "Git clone permet de copier un repository remote en local.  Il cree aussi un lien entre le repo distant (remote) et nous en local.\nPar defaut sans precision il va prendre la branche main / origin\navec l’option -b on peut preciser la branche exact qu’on souhaite.",
 		  "tags": ["git"]
-	  }
+	  },
+	  {
+		  "id": "011",
+		  "question": "c’est quoi la norme des messages en commit sur git ?",
+		  "questionImage": "",
+		  "answer": "la “norme” qu’on appelle la “conventional commits” veut un format:\n type(portee optionnelle): [court message]\n[corp de message optionnel]\n[footer optionnel pour jira]\n\navec le type qui peut etre;\nfeat: nouvelle fonctionnalite\nfix: correction de bug\nrefactor: changement de code mais qui n’implemente rien de nouveau\ntest: ajout de test\nOn essaie d’ecrire les messages sans majuscules, qui depasse pas 72 char, utilise l’imperatif",
+		  "answerImage": "",
+		  "tags": ["git"]
+	  },
+	  {
+		  "id": "012",
+		  "question": "qu’est ce que tu fais si tu dois faire un commit sur ta branche mais ton travail est pas finit, qu’est ce que tu fais pour ce commit un peu sale ?",
+		  "questionImage": "",
+		  "answer": "On peut faire des commits sur notre branche un peu sale, parce qu’on a pas le temps, parce qu’on part et on veut l’avoir en dehors de notre ordinateurs,etc….\nC’est pas grave on peut alors faire un git commit --amend si ce n’est qu’un commit, ou alors faire un squash si c’est plusieurs commit. Tout ca pour rendre des branches plus propres avec des bons messages.",
+		   "answerImage": "",
+		   "tags": ["git"]
+	  },
+	  {
+		  "id": "013",
+		  "question": "Tu as fait un git add sur un fichier par erreur. Quelle commande permet de le retirer de la \"Staging Area\" sans supprimer tes modifications ?",
+		  "questionImage": "",
+		  "answer": "Attention ca a pas mal change avec plein d’evolution de git. Donc vous allez avoir tout un tas de reponse possible de plein de personnes. Les habitudes etant dur a tuer, l’avantage c’est que j’ecris la reponse avec la derniere version\n2 cas possibles;\nSi on a deja des commits et donc un HEAD actif, on va utiliser “git restore --staged <fichier>” (avant on faisait git reset sur le fichier).\nCas plus rare mais si on est sur un premier commit et donc pas de HEAD actif, la il faut faire “git rm --cached <fichier>”",
+		   "answerImage": "",
+		   "tags": ["git"]
+	  },
+	  {
+		  "id": "014",
+		  "question": "Quelle est la différence entre working directory, staging area et repository ?",
+		  "questionImage": "",
+		  "answer": "C’est une distinction interessante pour bien comprendre git et son fonctionnement.\nLe working directory c’est la ou tu travailles en brut sur les fichiers.\nLa staging area (ou index) c’est la zone tampon ou tu t’appretes a envoyer pour git, c’est quand tu fais git add.\nLe repository c’est quand tu vas faire commit et donc aller dans le .git (et voir repo a distance dans un second temps).\nC’est important parce que cette etape index (= staging area) c’est ce qui permet a git de choisir les fichiers qu’on veut. Ca lui evite d’envoyer tous les fichiers mais que ce qui est modifie.",
+		   "answerImage": "",
+		   "tags": ["git"]
+	  },
+	  {
+		  "id": "015",
+		  "question": "c’est quoi git amend ? et comment l’utiliser ?",
+		  "questionImage": "",
+		  "answer": "git amend arrive quand on veut faire un commit, ce n’est pas une commande git a part.\n git commit --amend\nCela nous permet de corriger ou modifier un precedent commit, il nous permet d’ajouter des fichiers aux modifications mais aussi de faire de nouveau message de commit pour respecter la norme “conventional commits”\ngit commit --amend -m “new message”\nAttention ne faites jamais ca sur une branche partage avec d’autres personnes qui travaille dessus, car ca supprime le commit, donc a faire que sur du travail pas push.",
+		   "answerImage": "",
+		   "tags": ["git"]
+	  },
+	  {
+		  "id": "016",
+		  "question": "c’est quoi git squash ? et comment / pourquoi l’utiliser ?",
+		  "questionImage": "",
+		  "answer": "git squash n’est pas une commande git, mais une action qu’on peut faire. il s’agit de faire un “squash” de commit, c’est a dire de les compresser.\nOn peut vouloir faire ca parce qu’on a des commits pas propre et qu’on veut tout assembler ou compresser plusierus commits qui ont le meme scope mais qu’on avait divise.\nOn peut meme squash une branche entiere si on le souhaite.\nPour faire le squash on peut faire ;\ngit rebase -i HEAD~<nombre de commit qu’on veut squash> ⇒ on va etre en mode interactif\nLe mode interactf va donner des indication sur ce qu’on veut faire\ngit merge --squash <nom de la branche> pour merge et squash la branche entierement",
+		   "answerImage": "",
+		   "tags": ["git"]
+	  },
+	  {
+		  "id": "017",
+		  "question": "Quelle est la différence entre git switch et git checkout ?",
+		  "questionImage": "",
+		  "answer": "Git checkout est une commande qui fait plusieurs choses a la fois en fonction des cas; changer de branche, restore un fichier, etc….\nOn peut faire git checkout <branch> pour changer de branche ou pour recuperer une branche a distance qu’on a pas.\nIntroduit plusieurs version plus tards, git switch permet de separer un peu les utilisation de checkout (sans le deprecier pour autant)\ngit switch permet de cahnger de branche mais aussi de creer avec un flag --create",
+		   "answerImage": "",
+		   "tags": ["git"]
+	  },
+	  {
+		  "id": "018",
+		  "question": "Qu’est-ce que le HEAD  et detached HEAD dans Git ?",
+		  "questionImage": "",
+		  "answer": "HEAD dans git est le point de reference de la branche que vous regardez en local. Un detached HEAD arrive quand vous etes en plein rebase et que vous rejouez tous les commits, ou alors quand vous allez avec checkout revoir un etat precedent. C’est un moyen de vous avertir que ce n’est pas le dernier commit actuel et que vous n’etes pas sur une branche. Tout commit fait ici n’est rattache a rien.  Si vous avez fait des commits en detached HEAD, il suffit de faire une branche immediatement pour que ca soit rattache.",
+		   "answerImage": "",
+		   "tags": ["git"]
+	  },
+	  {
+		  "id": "019",
+		  "question": "Quel algo de hashage est utilise sur git ? et a quoi ca sert ?",
+		  "questionImage": "",
+		  "answer": "On utilise l’algorithme SHA1.\nCela sert a identifier les differents commits. Avec un git log vous pourrez voir les hash qui vous permettent de revenir en arriere si necessaire.\nAvec un git log --oneline on ne voit que les 7 premiers char, car c’est suffisant pour les distnguer sans de risque de tomber sur un autre hash (theorie car collision toujours possible).\nOn peut techniquement avoir une meilleur version avec SHA256 mais SHA1 reste le cas majeur (si vous avez repondu 256 c’est ok)",
+		   "answerImage": "",
+		   "tags": ["git"]
+	  },
+	  {
+		  "id": "020",
+		  "question": "qu’est ce qu’une branche ? et pourquoi utiliser des branches ?",
+		  "questionImage": "",
+		  "answer": "Sur git une branche est juste un pointeur vers une autre serie de commit different du main.  Cela permet d’avoir librement des espaces de developpement differents sans impacte l’origine / la version de base du projet. C’est utiliser pour collaborer avec differentes personnes et implementer differentes features par le biais de merge / rebase / pull request etc….",
+		   "answerImage": "",
+		   "tags": ["git"]
+	  },
+	  {
+    			"id": "021",
+    			"question": "Quelle est la différence entre git fetch et git pull ?",
+    			"questionImage": "",
+    			"answer": "Git fetch va juste aller chercher les informations des modifications du repo a distance.\nGit Pull lui fait un git fetch mais aussi un git merge automatiquement (potentiellement git rebase en fonction des parametres)\n",
+    			"answerImage": "",
+    			"tags": ["git"]
+	  },
+  {
+    			"id": "022",
+    			"question": "Qu’est ce que l’operation git merge ?",
+    			"questionImage": "",
+    			"answer": "Git merge va prendre les 2 pointeurs de commit de 2 branches, va trouver un commit de base commun aux 2 branches.\nDès que Git trouve un commit de base commun, il créera un nouveau « commit de merge » qui combine les changements de chaque séquence de commit de merge dans la file d'attente.\nSi Git trouve des modifications au meme endroit, il va y avoir un conflit car il ne sait pas quelle vesrsion prendre et du coup va demander a un utilisateur de faire la modification necessaire.",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "023",
+    			"question": "Qu’est-ce qu’un fast-forward merge ?",
+    			"questionImage": "",
+    			"answer": "Ce n’est pas une commande en particulier. C’est lorsque l’on fait un git merge, mais que notre branche est deja en avance sur le main.\nA ce moment la, Git va juste pointe le HEAD sur le dernier commit de cette branche.\nAucune operation en plus n’est necessaire.\nCependant on peut ne pas apprecier ca et demander un --no-ff pour qu’il y ait bien un commit de merge qui apparaissent sinon on ne peut pas faire la distinction.",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+			"id": "024",
+			"question": "C’est quoi les 4 differents types d’objet dans git ?",
+			"questionImage": "",
+			"answer": "Il y a 4 objets ; blob, tree, commit et tags\nC’est les objets qu’utilise git pour tout suivre.\nBlob = le contenu d’un fichier text/binaire\nTree = c’est la qu’est precise le dossier avec son contenu\nCommit = objet commit qui contient les informations qui lie tout, il a le hash du tree, le hash du parent, l’auteur, le commiter et le commentaire du commit.\nC’est ce hash qu’on retrouve avec git log.\nLe tags  = juste une indication vers un commit en particulier",
+			"answerImage": "",
+			"tags": ["CS"]
+  },
+  {
+    			"id": "025",
+			"question": "Tu travailles sur une feature, tu fais plusieurs commits, puis tu réalises que tu es sur main au lieu d’une branche. Que fais-tu ?",
+    			"questionImage": "",
+    			"answer": "Plusieurs solutions;\nCherry pick ;\nPremiere etape on fait une branche en partant de la branche et du commit avant notre erreur et se place dessus\nDeuxieme etape on fait “git cherry-pick <les hash qu’on veut>”\nTroisieme etape on va ; “git reset --hard HEAD~<nb de commit qu’on a cherry pick>” pour reset la ou on a fait la betise\n\nRebase onto\n”git rebase --onto <destination> <branche betise>~<nb de commit> <branche betise>” avec “branche betise” == la ou on devait pas.\nIl y a des cas simples aussi ou on peut juste copie la branche avec un nouveau nom et reset la ou on devait pas faire de manip.\nCe choix va dependre des cas de si la branche existe ou pas ? si il y a d’autres commits differents ?….",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "026",
+			"question": "Que fait git reflog et dans quels cas est-il utile ?",
+    			"questionImage": "",
+    			"answer": "reflog = reference log\nConserve pendant 90 jours en local, on retrouve tous les mouvements de HEAD qu’on a pu faire, donc les changements de branche et autres.\nEn observant ca on va pouvoir recuperer facilement des branches qui ont etait detruite ou\n un reset hard qui est fait par erreur ou trop loin ou encore un rebase qui pose probleme.\nA partir du reflog on peut faire un reset --hard avec la notation du reflog du style “HEAD@{<value>}”",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "027",
+    			"question": "Comment récupérer un commit “perdu” ?",
+    			"questionImage": "",
+    			"answer": "Tout depend de la definition de perdu mais on peut utiliser git reflog. Dans les cas les plus extremes git fsck --lost-found",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "028",
+    			"question": "A quoi correspond les caractres “~” et “^” sur git ?",
+    			"questionImage": "",
+    			"answer": "Les deux permettent de remonter le temps dans les commits sans utiliser le hash des commits passe.\nexemple ; “git checkout HEAD~2” ou “git show HEAD~3”\nLa difference reside dans comment on traite les merges/branches. Avec le “~” on reste sur notre branche de maniere verticale, alors qu’avec le “^” on va prendre le parent en terme de branche",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+ 			"id": "029",
+    			"question": "Tu viens de faire un git push et tu te rends compte que tu as commité un mot de passe dans ton code. Que fais-tu immédiatement ?",
+    			"questionImage": "",
+    			"answer": "Premierement ⇒ reset les mots de passe en question au plus vite c’est l’urgence\nOn doit ensuite re ecrire l’historique, pour ca on fait un git commit --amend mais ca c’est possible que si c’est sur le dernier commit. Dans des cas plus complexe qui remonte dasn le temps, il faut utiliser des outils externes pour ca ; BFG ou git-filter-repo",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "030",
+    			"question": "Il y a un bug dans le code, mais tu ne sais pas de quel commit il vient, comment tu fais ?",
+    			"questionImage": "",
+    			"answer": "Il faut reussir a identifier un commit sans le bug, on se moque de savoir si c’est le dernier exactement sans le code mais au moins on est sur qu’il n’y a pas de bug.\nEnsuite on commence un git bisect qui va permettre de faire une recherche par dichotomie (binary search).\nLes etapes;\ngit bisect start\nOn indique le commit mauvais avec “git bisect bad” et un bon commit avec “git bisect good” on peut utiliser un tag ou un hash pour bien identifier\nLa session commence alors et vous allez testez votre good pour ce bug, s’il est present vous taper “git bisect bad” et inversement “git bisect good” et on va pouvoir trouver rapidement le commit d’origine.\nIl exite des moyens d’automatise ce genre de process si vous avez un tester en place",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "031",
+    			"question": "A quoi ca sert git blame ?",
+    			"questionImage": "",
+    			"answer": "Quand on a trouve un ficher avec un bug, on peut utiliser la commande “git blame <fichier>” pour voir la derniere modification apporte a chaque ligne.\nCa permet de  voir le pourquoi du comment. C’est utile apres un git bisect, le commit ayant pu modifier plusieurs fichiers.",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "032",
+    			"question": "A la maison j’ai rebase une branche et push, a l’ecole j’ai la meme branche avant le rebase. Je ne peut donc pas git pull du repo distant, que faire ?",
+    			"questionImage": "",
+    			"answer": "Il faut que je mette a jour mon historique des commits avec “git fetch origin”. Ca permet a mon repo local de decouvrir les commits comme il faut. Puis je peux simplement faire git reset --hard origin/ma-branche. Attention si j’ai du travail que je veux garder a l’ecole il faut surement stash",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "033",
+    			"question": "Sur une autre branche j’ai modifie un fichier, mais j’aimerais retrouver la version de la branche main, comment faire ?",
+    			"questionImage": "",
+    			"answer": "“git checkout <other_branch> <fichier>” a noter que ca marche pas uniquement pour la branche main on peut preciser une autre branche si on cherche une version en particulier. \nIl faut savoir que c’est l’ancienne methode la nouvelle c’est plutot git restor --source <branche> <fichier>",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "034",
+    			"question": "Tu dois corriger un bug urgent en production, mais ton code actuel n’est pas propre ni terminé. Comment tu t’organises avec Git ?",
+    			"questionImage": "",
+    			"answer": "Le chemin classique ; stash ou commit le travail en cours ⇒ on repart sur la branche en production et on fait une branche “hotfix” on corrige et on revient sur notre branche de travail.\nSur des plus gros projets il est possible de mettre en place des worktree",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "035",
+    			"question": "Que se passe-t-il si tu fais un push sur une branche en retard ?",
+    			"questionImage": "",
+    			"answer": "Ca ne va pas fonctionner, l’historique sur le repo a distance est different de celui en local.\nLa solution faire un git fetch puis un rebase (git pull --rebase origin <ma branche>) ou alors un merge (git pull origin <ma branche>).",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "036",
+    			"question": "Que font les commandes “git add -p” et “git add -i” ?",
+    			"questionImage": "",
+    			"answer": "Les 2 options la font des ajouts au staging un peu plus technique\nL’option -i permet d’entrer dasn un mode interactif qui donne acces a plus de possibilite et de choix….de maniere interactive.\nL’optiomn -p est une des possibilite du -i qui permet de faire un ajout “chirurgical” car il montre en details ce que vous pouvez decide d’ajouter ou pas au staging\nUn avantage est de faire ca pour revoir tout le code qui est modifie",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "037",
+    			"question": "Quelle est la difference entre merge et rebase ?",
+    			"questionImage": "",
+    			"answer": "Les 2 operations nous servent a joindre des commits ensemble sur une branche. La difference residant sur comment on traite notre historique de commit\nUn rebase nous permet de re ecrire l’historique des commits en ajoutant les commits de notre branche au dessus de celle de l’autre branche.\nAvec un merge on va cree  une commit de merge qui va relier notre branche a l’autre.",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "038",
+    			"question": "Dans quels cas eviter le rebase ?",
+    			"questionImage": "",
+    			"answer": "On evite le rebase quand on travail pas seul sur la meme branche. Un rebase force a faire des --force-with-lease pour re ecrire l’historique des commits donc ca cree des comlexites inutiles pour un travail d’equipe\nOn peut vouloir plutot garder des historiques qui retracent les commits de maniere plus precise sur les branches donc des entreprises favorisent le merge\nLe reabse peut etre complique sur des branches ou il y a beaucoup de modification car plus de conflit et de temps perdu",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "039",
+    			"question": "Tu fais un git pull et tu te retrouves avec un conflit de merge. Comment tu gères ça concrètement étape par étape ?",
+    			"questionImage": "",
+    			"answer": "git status ⇒ pour voir les fichiers a traiter\n2 possibilites a partir d’ici, soit examine les fichiers au cas par cas et les modifier pour enlever les balises <<<< >>> === et gerer ca.\nSinon si on sait quelle version doit etre conserve on peu faire la commande git checkout --theirs <fichier> ou git checkout --ours <ficher> (ours pour garder le code de notre branche, et theirs celui de repo a distance)",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "040",
+    			"question": "Différence entre git reset --soft, --mixed et --hard ?",
+    			"questionImage": "",
+    			"answer": "--soft va juste modifier l’historique des commits mais pas le contenu, tous les fichiers restent en staging area\n--mixed (c’est quand on fait juste “git reset”) va plus loin, il efface l’historique mais fait aussi remet tous les fichiers modifie en dehors de l’historique (rouge sur git status)\n--hard c’est l’arme nucleaire ca enleve tout et meme les modifications des fichiers.",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "041",
+    			"question": "Quelle est la différence entre reset et revert ?",
+    			"questionImage": "",
+    			"answer": "Git reset permet de revenir en arriere en re ecrivant l’historique en fonction des differents modes\ngit revert permet de faire un commit qui revient dans le passe, c’est un reset en version safe sur des branches ou on travail en equipe.",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "042",
+    			"question": "On peut voir les branches actives sur github / gitlab mais comment faire pour les voir avec une commande de terminal ?",
+    			"questionImage": "",
+    			"answer": "git ls-remote --head origin\nOu alors on va faire un fetch puis un git branch -r ou git branch -a",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "043",
+    			"question": "comment fonctionne git stash ?",
+    			"questionImage": "",
+    			"answer": "Git stash permet de mettre des fichiers modifie et en staging area (non commit donc) dans une stack.\nAttention le plus souvent il faut ajouter l’option -u pour les untracked files\nAvec la commande git stash list on peut voir le contenu de notre stash\nSi apres des modifications ou le travail fait on veut recuperer le contenu de la stack on utilise git stash pop ou apply\nPour supprimer des elements de la stack on utilise git stash drop",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "044",
+    			"question": "Que fait git stash pop vs git stash apply ?",
+    			"questionImage": "",
+    			"answer": "pop va enlever de la stack pour reapplique nos modifications\nQuand apply lui va conserver dans la stack en plus d’appliquer\nLes pop et apply peuvent cree des conflit comme un rebase ou merge et il faut les traiter.\nMais attention en cas de conflit, pop ne vas pas supprimer de la stack par securite il faut bien faire le drop manuellement.",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "045",
+    			"question": "Différence entre git diff, git diff --staged et git diff HEAD ?",
+    			"questionImage": "",
+    			"answer": "git diff ; c’est la difference entre ton working directory et ton index (= staging area)\ngit diff --staged; c’est la difference entre ton index (=staging area donc ce que tu as git add) et ton precedent commit\ngit diff HEAD; c’est la difference entre ton working directory et ton dernier commit",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "046",
+    			"question": "Comment comparer deux commits ?",
+    			"questionImage": "",
+    			"answer": "il y a plusieurs comparaisons possible, mais elle passent toutes par git diff\ngit diff <hash> <hash> pour comparer 2 commits specifiques.\ngit diff main <branche> pour voir l’ajout de la branche\ngit diff <hash> <hash> -- <nom du fichier> pour cibler precisement les modifications d’un fichier",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "047",
+    			"question": "Qu’est-ce qu’un cherry-pick ?",
+    			"questionImage": "",
+    			"answer": "La commande git cherry-pick est une commande qui permet de prendre un commit en particulier d’une branche pour le mettre sur une autre (attention il s’agit d’une copie).\ngit cherry-pick <hash> par exemple pour appliquer la ou on se trouve.",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "048",
+    			"question": "Dans quel cas utiliser git cherry-pick ?",
+    			"questionImage": "",
+    			"answer": "On utilise cherry-pick dans les cas ou on doit selectionner un commit en particulier cela reste donc le plus souvent pour reparer un probleme rapidement, recupere un commit egare ou sur une mauvaise branche.",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "049",
+    			"question": "Quels sont les risques du cherry-pick ?",
+    			"questionImage": "",
+    			"answer": "Le risque d’un cherry-pick c’est la creation de doublon, car ca ne fait que copie. Donc on a 2 commits avec des hash different mais un contenu identique.\nL’autre point negatif c’est que cette operation peut poser probleme si elle a besoin d’autres commits fait auparavant pour fonctionner, on recuperer potentiellement quelque chose qui ne fonctionne pas.\nDernier cas semi problematique, ca peut cree des conflits plus tard un peu genant.",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "050",
+    			"question": "Un collègue a forcé (push --force) sur la branche partagée et ton historique est cassé. Que fais-tu ?",
+    			"questionImage": "",
+    			"answer": "Alors ici il y a pas qu’une bonne reponse, il y a multitude de bonne reponse.\nMais la bonne chose a faire au minimum c’est sauvegarde notre travail localement sur une branche a part.\nSi on a pas git pull ⇒ on peut force et c’est le collegue qui doit rebase idealement\nSi on a git pull et que ca explose tout ⇒ on va alors plutot reset --hard sur l’avant probleme (trouvable avec reflog) et push l’etat avant le drame.",
+    			"answerImage": "",
+    			"tags": ["git"]
+  },
+  {
+    			"id": "051",
+    			"question": "Tu es en train de résoudre un conflit et tu ne comprends pas une partie du code en conflit. Que fais-tu dans un contexte pro (temps limité, pression) ?",
+    			"questionImage": "",
+    			"answer": "Pas de reponse precise ici, pas de verite unique. Idealement tu dois chercher qui est a l’origine de ce point et le contacter (pour ca git blame ou git log).\nSi dispo tu vois avec la personne, si pas dispo tu fais pas n’importe quoi tu peux contacter le lead, le senior etc….\nIl y a pas de reponse parfaite a cette question de type entretien d’embauche mais l’idee c’est d’eviter de faire n’importe quoi surtout.",
+    			"answerImage": "",
+    			"tags": ["git"]
+  }
 ]

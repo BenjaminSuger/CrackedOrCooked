@@ -146,5 +146,29 @@
 		"answer": "une liste se declare avec des [ ]\nmalgre son nom ce n’est pas une linked list c’est bien un tableau dynamique de memoire. C’est bien un bloc de memoire contigu.\nEn realite en arriere plan c’est un tableau dynamique de pointeur de PyObject.\n Tout etant un objet en python. Donc ca veut dire qu’on peut avoir plusieurs type de donne dedans (c’est des blocs de memoire contigu de PyObject)\nIl conserve l’information du tableau de tableau, de sa capacity et donc aussi de la ou il a deja rempli les choses\n(on peut faire le parallele avec std::vector en C++ qui concretement fait la meme chose)",
     		"answerImage": "",
     		"tags": ["python"]
+	},
+	{
+		"id": "022",
+		"question": "En python, c’est quoi l’ordre d’evaluation dans une fonction ? exemple func(func1(), func2()) ?",
+		"questionImage": "",
+		"answer": "A contrario du C++, ici c’est simple, python evalue toujours comme le reste de gauche a droite dans le sens de lecture\n(desole pour tous les autres langues avec autres sens de lecture).",
+		"answerImage": "",
+		"tags": ["python"]
+	},
+	{
+		"id": "023",
+		"question": "qu’est ce qui se passe dans ce code en python ?",
+		"questionImage": "images/python/python023.png",
+		"answer": "Rien techniquement est la meilleur reponse. Mais en realite il fait bien une operation avec le unary operator +\nIl n’y a pas de post ou de pre increment/decrement en python (par volonte de design)",
+		"answerImage": "images/python/python023Answer.png",
+		"tags": ["python"]
+	},
+	{
+		"id": "024",
+		"question": "Différence entre module, un package et une librairie en python ?",
+		"questionImage": "",
+		"answer": "Un module est l’unite de base, un fichier .py\nUn package est dossier qui contient des modules et un __**init**__.py (pour les plus ancienne version de python3) pour organiser tout ca.\nUne librairie est un ensemble de package et module.",
+		"answerImage": "",
+		"tags": ["python"]
 	}
 ]

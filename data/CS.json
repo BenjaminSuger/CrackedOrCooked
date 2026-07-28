@@ -34,5 +34,426 @@
     		"question": "C’est quoi la notation Big O ?",
     		"answer": "La notation Big O mesure la croissance théorique de la complexité d’un algorithme en fonction de la taille de l’entrée (que l’on nomme n).\nLorsque l’on parle de la croissance, on parle de la croissance en terme de temps et de mémoire.\nEn anglais on parle de Time and Space complexity.",
     		"tags": ["CS"]
-	}
+	},
+	{
+    		"id": "006",
+    		"question": "Qu’est ce qu’un OS (Operating system) et un kernel (+ les differences) ?",
+    		"answer": "Un OS est un programme qui gere les autres programmes lance par l’ordinateur.\nIl fait le lien entre le hardware et les logiciels. Il va avoir une interface (GUI ou CLI) et un file system.\nLe kernel est la partie de l’OS qui ne s’occupe uniquement de faire la liaison entre la machine et l’OS. Il permet l’allocation de ressources et de la memoire, la gestion du CPU, les operations I/O, etc……\nD’ou la fameuse blague “actually linux is only the kernel” (GNU etant l’OS, ou d’autres desormais).",
+		"answerImage": "images/CS/CS006.png",
+    		"tags": ["CS"]
+	},
+	{
+    		"id": "007",
+    		"question": "Qu’est ce que le boot loader et le boot manager (Operating system) ?",
+    		"answer": "Quand on allume son ordinateur on va avoir le BIOS/UEFI (ancien/moderne) qui va gerer le hardware.\nPuis il va donner la main au boot manager qui va choisir l’OS qu’il doit charger, si il y a un choix possible.\nEnfin c’est le boot loader qui va demarrer l’OS en allant chercher le kernel.\nGRUB est le boot manager et le boot loader de linux.\nTandis que Windows separe bien les 2.",
+    		"tags": ["CS"]
+	},
+	{
+    		"id": "008",
+    		"question": "C’est quoi UNIX compare a Linux ?",
+    		"answer": "Pour repondre a la question il faut determiner ce qu’est UNIX\nUNIX est un OS qui a etait cree au Bell Labs par entre autre, Ken Thompson (co createur du B, du Go, grep….), Dennis Ritchie (createur du C), Brian Kernighan (co autheur du livre de ref du C de base, createur de AWK),...\nUNIX etait un nouveau OS a l’epoque qui avait une maniere de fonctionne particuliere compare a ce qui existait.\nUNIX est une marque depose initiallement par AT&T (puis des changement de main d’entreprise en entreprise). Par differentes histoires rocambolesque, l’UNIX wars, des problemes juridique,…. on va desormais parle de UNIX comme une famille d’OS. Car son architecture est utilise dans beaucoup de projet ;\nGNU / Linux ⇒ meme si pour des raisons de droit/open source il est re ecrit totalement\nBSD avec FreeBSD, DragonFly BSD….\nPlein de systeme commerciaux (AIX d’IBM, Solaris d’Oracle,etc….)",
+    		"tags": ["CS"]
+	},
+	{
+    		"id": "009",
+    		"question": "C’est quoi l’Instruction Set Architecture (ISA) ?",
+    		"answer": "l’ISA est le manuel d’instruction pour le CPU.\nIl definit le langage qu’il faut utiliser pour communiquer avec le CPU.\nQuand on parle de langage on parle des instruction au plus bas niveau possible.\nL’ISA va determiner ; les instructions que le CPU peut suivre, les registres (bloc de memoire a l’interieur du CPU) et la taille de donne (32 ou 64 bits).\nIl existe 2 grandes familles ;\nCISC ⇒ x86 (32 bits) x86-64 (64 bits), Intel et AMD en grande majorite\nRISC ⇒ c’est l’ARM qu’on retrouvre sur Mac puce M1/M2/M3 etc….",
+    		"tags": ["CS"]
+	},
+	{
+    		"id": "010",
+    		"question": "Qu’est ce qu’un system call (syscall) ?",
+    		"answer": "Un appel systeme c’est ce qui permet au programme d’utiliser les ressources de l’ordinateur pour faire des operations, ce qui passe par le kernel.\nDe base les programmes qu’on utilise, qu’on code ne nous laisse pas la main sur les ressources de l’ordinateur car ca serait un trop grand risque et complexe.\nCar sans ca, chaque program devrait aller chercher les ressources tout seul.\nDu coup il y a une interface entre nous et tout cela, ce sont des fonctions qui vont etre autorise a faire des operations comme fork(), write(), brk(),etc….\nCe qui ce passe sous le capeau, quand il y a un syscall, le CPU va passer du mode utilisateur a kernel, identifier le numero du system call, completer la tache et ensuite il va rendre la main en repassant en mode utilisateur.",
+    		"tags": ["CS"]
+	},
+	{
+    		"id": "011",
+    		"question": "Pourquoi un system call est plus lent qu’un function call ?",
+    		"answer": "Un appel a une fonction c’est simple et direct.\nAlors qu’un syscall lui va avoir tout un overhead avec le CPU pour qu’il passe en mode Kernel, puis cherche dans la table de syscall le numero, fasse l’operation et ensuite repasse le CPU en mode user.\nCe changement entre kernel et user peut creer un probleme  (flush du TLB Translation Lookaside Buffer) qui fait qule CPU va devoir recharger les informations depuis la RAM ce qui est lent\nPourquoi c’est important de savoir ca ?\nparce que ca pousse a ne pas faire des syscall n’importe comment, mieux vaut un grand write, qu’une serie de write petit.",
+    		"tags": ["CS"]
+	},
+  {
+		"id": "012",
+		"question": "Qu’est ce qu’un REPL ?",
+		"questionImage": "",
+		"answer": "REPL = Read Eval Print Loop\nC’est une invite de commande qui permet d’entrer des instructions qui vont etre immediatement evalue et l’output sortie tout de suite.\nCela tourne en boucle pour vous laisser faire d’autres instructions.\nExample; Bash, python3 (dans le terminal)",
+		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+  		"id": "013",
+    		"question": "Qu’est ce qu’un linter ?",
+    		"questionImage": "",
+    		"answer": "Un linter est un analyseur de code statique.\nIl va examiner vos fichiers sources de code et essayer de trouver des erreurs, des problemes de style, des alertes bug prone.\nPas besoin de compiler, mais certains vont demande a avoir les details de la structure (les .h / .hpp et les .c / .cpp). Example; flake8 pour python\nclang-tidy pour le C++",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+		"id": "014",
+		"question": "qu’est ce que la programmation imperative ?",
+		"questionImage": "",
+		"answer": "C’est un paradigme, une maniere de reflechir au code.\nLa programmation imperative on va explicitement preciser les operations a realiser pour resoudre notre probleme.\nOn va retrouver tout une logique de flow, de traitement d’operations, boucles, if statement,etc….\nC’est le plus souvent la ou on commence a apprendre la programmation (comme le C par exemple). L’ordre des operations est important\nL’architecture de nos ordinateurs est par nature imperative (Van Neuman)\nUn des aspects important de la programmation imperative c’est qu’on va avoir des etats et des mutations (= changement des variables)",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "015",
+		"question": "qu’est ce que la programmation declarative ?",
+		"questionImage": "",
+		"answer": "la programmation declarative est un paradigme, c’est a dire une maniere de reflechir a l’ecriture du code.\nIci on ne va pas decrire ce qu’on va faire, mais ce qu’on veut avoir en resultat.\nComment c’est possible ? C’est un langage de programmation ou on va ecrire du code, dont le compiler / interpreter va s’occuper de fournir le resultat. Ici on veut “quoi” plutot que le “comment”.\nUne requete SQL, on ne lui precise pas comment faire pour trouver l’output, on lui demande de nous sortir un output avec des criteres. C’est lui qui s’occupe de faire les choses de son cote.\n Autres exemples de langage declaratif; HTML, CSS, terraform,",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "016",
+		"question": "qu’est ce que le programmation fonctionnelle ?",
+		"questionImage": "",
+		"answer": "La programmation fonctionnelle est un paradigme, c’est une maniere d’ecrire et de reflechir au code.\nOn va ici tout decompose en fonction notre probleme. C’est une maniere de representer les choses de maniere plus proche des mathematiques\nElle a plusieurs principes; immuabilite des variables,\nle resultat des fonctions ne depend que des arguments (= fonction pure ⇒ avec le meme input toujours le meme output),\npas d’effet de bord pour les fonctions (modification d’etat du programme),\n utilisation de la recursivite au lieu des boucles (mais des systeme de protection pour eviter les overflows),\nPartage de structure pour eviter consommation de memoire abusive\nCette logique est souvent mise en avant pour sa simplicite sur des gros projets, car le code devient previsible\nExemple de langages fonctionnelle; Ocaml, Haskell",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "017",
+		"question": "qu’est ce que la programmation oriente objet ?",
+		"questionImage": "",
+		"answer": "La programmation oriente objet est un paradigme, une maniere de reflechir et ecrire du code.\nIci on va reflechir a notre code en objet. Un objet representant une entite qui va etre creer par un moule, qu’on appelle une classe.\nLes objets vont avoir des attributs et des comportements (= fonction). La programmation oriente objet a 4 piliers; encapsulation, abstration, inheritance, polymorphisme.\n",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "018",
+		"question": "En programmation qu’est ce que le typage dynamique ou statique ?",
+		"questionImage": "",
+		"answer": "Les differents langage de programmation traitent differement les variables.\nUn typage dynamique, c’est que la variable est connu uniquement au runtime.\nUn typage statique c’est qu’on declare le type de la variable. On connait donc le type de la variable a la compilation. Il reste fige, on ne peut plus le changer.\nLe C / C++ ⇒ typage statique\nLe python / javascript ⇒ typage dynamique\nOn peut ajouter une autre notion, typage fort et faible. Fort il est strict et nous vous laisse pas faire n’importe quoi (python), faible il peut vous laisser faire des conversion ou a des regles assez libre (javascript).\n5 + “2” est un bon exemple ⇒ python pas ok, javascript ok….",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "019",
+		"question": "qu’est ce qu’un garbage collector ?",
+		"questionImage": "",
+		"answer": "Le garbage collector (GC), en programmation, est le systeme qui permet de recuperer la memoire utilise par le programme qui ne sert plus.\nCertains langages de programmation ont un GC par defaut (python, JAVA) et d’autres non (C).\nCela peut eviter des erreurs mais parfois presente un desavantage sur le temps/performance car cela necesite une utilisation de ressources de la machine (mais tous les langages ne sont pas egaux sur la question et c’est des points de debat infine)\nIl existe differentes strategie pour mettre en place un GC ; check scope, reference counting (python), mark and sweep(java), etc….",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "020",
+		"question": "c’est quoi un hash ? (question CS)",
+		"questionImage": "",
+		"answer": "Un hash est le produit d’une fonction de hashage. Une fonction de hashage est une fonction qui permet de transformer un input, en une sequence de charactere d’une longeur fixe.\nLa fonction de hashage a plusieurs proprietes importantes;\n-irreversible; on ne peut pas a partir de l’output retrouver l’input.\n-unique; chaque input ne peut produire qu’un output unique en theorie (hash collision).\n-un input ne peut pas produire different output.\n",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "021",
+		"question": "c’est quoi un hash collision ?  (question CS)",
+		"questionImage": "",
+		"answer": "Certains algorithme de hashage cree une situation qui casse les proprietes necessaire. Il peut y avoir pur 2 input le meme output.\nExample imaginaire; le mot “chats” produit le meme output que le mot “chien”. On finit donc avec un hash identique pour des valeurs differentes.",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "022",
+		"question": "Qu’est ce qu’une rainbow table ? (question CS / Cybersecurite)",
+		"questionImage": "",
+		"answer": "Une rainbow table est une base de donne de hash deja etablit qui permet a un attaquant de comparer les hash qu’il aurait peu obtenir avec un leak. Meme si le hash n’est pas reversible, si l’attaquant trouve un hash deja existant dans sa base, il connait la source.\nOn peut eviter ce genre de probleme avec un ajout au hash, un salt (chaine de char aleatoire)",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+{
+		"id": "023",
+		"question": "Qu’est ce qu’une liste chaine (Computer Science) ?",
+		"questionImage": "",
+		"answer": "Une liste chaine est une structure de donne, une structure de donne etant un moyen d’organiser des donnes.\nUne liste chaine est une structure de donne lineaire mais dont les elements (ou aussi appelle noeud) ne sont pas contigu dans la memoire. Les elements sont lies entre eux en pointant chacun vers le prochain elements (et le precedent dans le cas d’une double linked list).\nL’avantage de cette structure de donne etant l’insertion O(1) et le trade off (le desavantage) etant le temps d’acces O(n) (en comparaison avec un array).",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "024",
+		"question": "Qu’est ce qu’un array (Computer Science) ?",
+		"questionImage": "",
+		"answer": "Un array ou tableau en francais, est une structure de donne, une structure de donne etant un moyen d’organiser des donnes.\nUn array est une structure de donne lineaire dont les elements sont contigu dans la memoire.\nL’array presente l’avantage d’avoir un acces rapide au informations car les blocs de memoires sont contigue (pointer addition), mais a un trade off sur l’insertion O(n).",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "025",
+		"question": "Quel est la complexite algorithmique de ce pseudo-code ?",
+		"questionImage": "images/CS/CS025.png",
+		"answer": "La premiere boucle tourne N fois, la seconde boucle tourne aussi N fois.\nDonc ca nous donne 2 * O(N) mais on drop les constantes, et on va donc avoir O(N).",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "026",
+		"question": "C’est quoi un binary search ? (et son Big O notation)",
+		"questionImage": "",
+		"answer": "On parle de aussi en francais de recherche dichotomique. Il nous faut une liste deja trie pour pouvoir operer dessus.\nC’est une recherche ou on va eliminer la moitie des elements a chaque test. En regardant la valeur du milieu et en conservant soit le cote gauche, soit le cote droit si c’est superieur ou inferieur.\nC’est un des meilleurs algorithme de recherche (meme s’il demande un prerequis important) avec sa notation O(log(N)).",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+{
+		"id": "027",
+		"question": "Qu’est ce que c’est undefined behavior contre unspecified behavior ?",
+		"questionImage": "",
+		"answer": "Undefined behavior = le comportement est indefini, c’est a dire que ca peut faire n’importe quoi, ca peut ou non compile, ca peut produire un output comme ca peut crash.\nUnspecified behavior = rien n’est specifie mais on peut faire un choix, le plus souvent c’est l’implementation du compilateur qui a fait un choix sur quelque chose de specifique",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "028",
+		"question": "c’est quoi une structure de donne abstraite / Abstract Data Type (question CS)?",
+		"questionImage": "",
+		"answer": "Une structure de donne abstraite utilise une structure de donne concrete pour etre implementer.\nC’est une structure qui definit des comportements mais pas une implementation.\n Par exemple une stack en data structure est abstraite, on doit implementer un LIFO mais pas forcement de precision si c’est fait avec une linked list ou un array, on est libre sur ce choix.",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "029",
+		"question": "c’est quoi la CI/CD (question CS) ?",
+		"questionImage": "",
+		"answer": "CI/CD = Continuous Integration and Continuous Deployment.\nC’est le process qui mis en place par les devops pour faire de l’automatisation sur toutes la procedure de creation et de sortie du code.\nOn met en place des tests du code (securite,…), l’automatisation des sorties de version etc….\nOn parle souvent de pipeline CI/CD",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+		"id": "030",
+		"question": "c’est quoi un load balancer ? (question CS)",
+		"questionImage": "",
+		"answer": "Un load balancer c’est un outil  qui permet de diriger le traffic entrant pour repartir entre different serveurs.\nIl peut prendre la forme d’un software (NGINX) comme d’un outil cloud ou d’un outil hardware.\nCa permet d’eviter d’avoir des problemes d’acces, si il y a enormement de connections d’un coup.\nIl existe differentes strategies et algorithmes pour faire ca ; Robin tour (chaque connection a un server different), Least Connections (le serveur qui a moins de connection), IP Hash",
+		"answerImage": "",
+		"tags": ["CS"]
+  },
+  {
+	  	"id": "031",
+    		"question": "c’est quoi la stack (memoire) ?",
+    		"questionImage": "",
+    		"answer": "La Stack est la zone de mémoire dédiée à l'allocation automatique d'un programme.\nStack signifie \"pile\". Comme une pile d’assiettes, on ajoute des éléments par-dessus les autres, et pour enlever un élément, on doit obligatoirement retirer le dernier ajouté (LIFO : Last In, First Out).\nCette zone de la RAM contient ce qu’on appelle des Stack Frames. Chaque stack frame correspond à l’appel d’une fonction et stocke ses variables locales ainsi que son adresse de retour. Quand la fonction se termine, sa frame est instantanément détruite. C’est une mémoire ultra-rapide pour le processeur, mais qui a le défaut d’être limitée en taille (environ 8 Mo par défaut sur Linux). Si on la dépasse, c'est le fameux plantage Stack Overflow.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "032",
+    		"question": "c’est quoi la heap (memoire) ?",
+    		"questionImage": "",
+    		"answer": "La heap c’est la memoire dynamique d’un programme.\nEn opposition a la stack, la heap qui est aussi sur la RAM a une limite plus grande. C’est un tas, un peu comme un entrepot. C’est plus lent que la stack, car ici on doit trouver dans notre entrepot ou on avait stocke les blocs de memoire (c’est une operation que l’ordinateur realise pour nous).\nOn va l’utiliser quand on veut utiliser un bloc de memoire qui depasse la duree de vie de la fonction qui l’a cree ou quand on ne connait pas la taille du bloc de memoire a l’avance.\nPour ca en C on utilise malloc, et en C++ new.\nA la difference de la stack, cette memoire ne se libere pas automatiquement, il faut le faire manuellement.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "033",
+    		"question": "c’est quoi un VLA (variable length array) ? Est ce que c’est bien ou pas bien ?",
+    		"questionImage": "",
+    		"answer": "un VLA c’est un tableau ou on ne declare pas sa taille de maniere fixe mais avec une variable;\n int tab[variable];\nCette variable est dependante d’une variable qui est calcule ailleurs ou dependante d’une entre utilisateur.\nC’est mauvais car risque de stack overflow, aucun moyen de check si fail compare a une allocation de memoire sur la heap avec malloc/new.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "034",
+    		"question": "c’est quoi un stack overflow ?",
+    		"questionImage": "",
+    		"answer": "Un stack overflow arrive lorsqu’on depasse la limite de la memoire stack d’un programme.\nA ce moment la cela cree un arret du programme (un crash).\nCa peut arriver a cause d’une recursion trop importante ou alors d’un tableau sur la stack qui aurait une taille trop importante utilise par exemple.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "035",
+    		"question":"c’est quoi un segfault ?",
+    		"questionImage": "",
+    		"answer": "Un segfault, ou SIGSEV, est une erreur qui arrive lorsque l’on essaie d’acceder a un bloc de memoire qui n’est pas accessible, pas allouer au prealable. Ca cause un crash du programme.  Ca peut arriver par exemple, si on dereference un pointeur qui est null.  Ou alors quand on essaie de modifier une valuer qui est readonly , comme benjamin pendant la piscine au premier exam (char *test = “chat”; test[0] = ‘C’).",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  		},
+  {
+    		"id": "036",
+    		"question": "c’est quoi la RAM ?",
+    		"questionImage": "",
+    		"answer": "C’est la memoire a acces aleatoire. C’est la memoire court terme de l’ordinateur. C’est la memoire qui est utilise pour pour aller plus vite sur les programmes et fichiers lorsqu’on travaille dessus. Car l’ecriture sur disque dur est plus lent.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "037",
+    		"question": "qu’est ce que c’est que c’est que les champs qui apparaissent sur cette image de valgrind ?",
+    		"questionImage": "",
+    		"answer": "”definitely lost” = c’est de la memoire qu’on a alloue manuellement, qu’on n’a pas de alloue a la fin de notre programme\n”inderictly lost” = c’est une fuite de memoire qui arrive en manipulant une structure gere par pointeur (tree, liste chainee)\n”possibly lost” = c’est une fuite de memoire a moins d’operations assez special qui se charge de libere la memoire mais dont valgring n’arrive pas a suivre\n“still reachable” = (debat souvent a 42), c’est la memoire qui  leak mais qui est recupere par l’OS. Il faut bien la libere et ideallement la bonne pratique mettre le pointeur a NULL surtout si on le recupere.\n”suppressed” = avec valgrind on peut lui preciser avec certaines commandes d’ignorer certaines allocation et donc des leaks resultant de cette allocation de memoire.",
+    		"answerImage": "images/CS/CS037.png",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "038",
+    		"question": "c’est quoi un integer overflow ?",
+    		"questionImage": "",
+    		"answer": "Comme toute chose, dans un ordinateur, tout est du binaire. Un integer (4 bytes / octet meme si c’est implementation defined), quand on l’augmente on ajoute des 1 au binaire. Seulement a un moment donne, on va arrive a la limite, qui est 2147483647. On va alors changer le bit de signe et on va alors se retrouver a faire un wrap around donc une valeur negative. On fait un tour. Bien sur, sur un unsigned c’est retour a 0.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "039",
+    		"question": "c’est quoi le backtracking ?",
+    		"questionImage": "",
+    		"answer": "Le backtracking c’est un algorithme qui utilise la recursion pour trouver la solution a un probleme. Ca permet d’explorer plusieurs chemins jusqu’a trouver le bon grace a une condition d’arret.\nSi on se rend compte que ce chemin est mauvais, on backtrack, on rebrousse chemin pour tester d’autres possibilite.\nOn utilise ce genre d’algorithme quand on a besoin de tester jusqu’a trouve la solution comme par exemple; la sortie d’un labyrinthe. Attention le backtracking n’est pas DFS ou BFS.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "040",
+    		"question": "c’est quoi la recursion ?",
+    		"questionImage": "",
+    		"answer": "La recursion c’est lorsqu’une fonction va s’appeller elle meme pour resoudre un probleme plus petit.\nOn a une condition d’arret, le base case qui vient nous donner la solution au probleme.\nOn l’oppose a l’iteratif. ou on fait une boucle. Il faut faire attention en python, 1000 appel recursif ⇒ ca crash /  en C++ on va pouvoir en faire plus mais comme on fait bcp de stack frame il faut faire attention.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "041",
+    		"question": "c’est quoi un buffer overflow ?",
+    		"questionImage": "",
+    		"answer": "un buffer overflow arrive quand on utilise un bloc de memoire, et qu’on depasse sa capacite pour agir dessus. C’est UB qui peut causer un segfault. C’est aussi en cybersecurite un moyen de hack un programme.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "042",
+    		"question": "C’est quoi BFS et DFS en algorithmie et la difference entre les deux ?",
+    		"questionImage": "",
+    		"answer": "BFS = Breadth First Search\nDFS = Depth First Search\nCe sont des algorithmes pour parcourir des structures de donnes. Mais ils ont une approche differentes pour parcourir et trouver une solution. Le BFS lui va parcourir tous les noeuds/choix du meme niveau avant de continuer. Alors que le le DFS va aller jusqu’au bout d’un noeuf/choix avant de revenir en arriere pour explorer d’autres chemins.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "043",
+    		"question": "c’est quoi la difference entre test unitaire et test fonctionnel ?",
+    		"questionImage": "",
+    		"answer": "un test unitaire va faire un check d’une partie du code la plus petite possible, une fonction, une methode, une classe. Elle ne depend jamais du reste du reste du systeme donc on peut faire des mocks (=tout ce qui est necessarie pour le faire fonctionner)\n un test fonctionnel c’est un test sur le programme en entier. On veut valider l’utilisation final du projet.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "044",
+    		"question": "Combien il y a de ports au total sur un ordinateur ? Comment sont ils divises ?",
+    		"questionImage": "",
+    		"answer": "Il y en a 65536 (numérotés de 0 à 65535), cette valeur vient du fait que c’est code sur 16 bits.\nDe 0 a 1023 c’est les ports dit “classiques” qui sont reserve aux systemes classiques et modifiable que en etant root.\nDe 1024 a 49151 c’est des ports pour applications specifiques.\nLe reste est considere comme temporaire / dynamique.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "045",
+    		"question": "Quel service sur le port 21 ?",
+    		"questionImage": "",
+    		"answer": "FTP File Transfer Protocol",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "046",
+    		"question": "Quel service sur le port 22?",
+    		"questionImage": "",
+    		"answer": "SSH",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "047",
+    		"question": "Quel service sur le port 53?",
+    		"questionImage": "",
+    		"answer": "DNS Domain Name System",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "048",
+    		"question": "Quel service sur le port 80 ?",
+    		"questionImage": "",
+    		"answer": "HTTP",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "049",
+    		"question": "Quel service sur le port 443 ?",
+    		"questionImage": "",
+    		"answer": "HTTPS",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "050",
+    		"question": "ca veut dire quoi l’acronyme TCP et UDP ? et qu’est ce que c’est globalement ?",
+    		"questionImage": "",
+    		"answer": "TCP = Transfer Control Protocol\nUDP = User Datagram Protocol\nTCP est un protocol qui s’assure que les packets sont bien arrive dans l’ordre grace a un systeme de three-way handshake.\nTandis que UDP est un protocol qui communique sans verifier que les packets arrivent.\nLe TCP est par exemple utilise sur les sites internet alors que UDP c’est pour du streaming video.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+    		"id": "051",
+    		"question": "C’est quoi la “CIA Triad” en cybersecurite ?",
+    		"questionImage": "",
+    		"answer": "C = Confidentialite\nI = Integrite\nA = Availability (= disponibilite)\n C’est un modele ou chaque point doit etre present, sinon cela implique que le systeme n’est pas pa securise.\nLa Confidentialite = Les donnees sont secretes, connus que par les personnes qui doivent y avoir acces\nL’integrite = on s’assure que les donnees ont pas etait manipulees ou modifie\nAvailability = les donnees sont disponibles quand l’utilisateur souhaite avoir acces.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+		"id": "052",
+    		"question": "Dans les techniques d’algorithmie (comme sur leetcode) ; qu’est ce que le dynamic programming ?",
+    		"questionImage": "",
+		"answer": "C’est une optimisation de la recursion. On va stocker le resultat du precedent calcul / traitement du sous probleme pour l’utiliser dans le prochain traitement du sous probleme suivant. Exemple ; Le probleme du Nth Nombre de Fibonacci.\nOn parle de “memoization” c’est a dire de reduction de temps de calcul mais avec un trade off sur la memoire.\nLa condition pour avoir du dynamic programming c’est d’avoir des sous problemes qui se chevauchent.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+		    "id":"053",
+    		"question": "Dans les techniques d’algorithmie (comme sur leetcode); qu’est ce que two pointers ?",
+    		"questionImage": "",
+		"answer": "C’est une strategie ou on utilise 2 pointeurs, un au debut de notre structure de donnee, l’autre a la fin.\nCe qui sous-entend qu’on a donc des structures de donnes qui sont lineaires comme un tableau, une linked list etc…..\nL’avantage de cette technique est d’essayer d’eviter les boucles imbriques et d’avoir un O(N).",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+		    "id":"054",
+    		"question": "Dans les techniques d’algorithmie (comme sur leetcode); qu’est ce que le greedy algorithm ?",
+    		"questionImage": "",
+		"answer": "La technique algorithmique greedy, essaie de resoudre un probleme, en realisant le choix le plus optimise possible a chaque etape.\nCela ne mene pas forcement a la meilleur solution final global.\nIl y a 2 criteres pour pratiquer ce genre d’algorithme ;\n1. On peut reussir a obtenir un resultat sans faire de backtracking,\n2. La solution optimale est trouvable en reolvant les sous problemes de maniere optimale (c’est pour ca qu’on utilise parfois plutot du dynamic programming)",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+		"id": "055",
+    		"question": "qu’est ce qu’on appelle WORD ? (en parlant de computer architecture) et on peut poser la question sur LES WORDS en x86 assembly",
+    		"questionImage": "",
+		"answer": "Un WORD c’est une unite de donnees naturelle.\nC’est la taille de la donnee qu’un processeur (CPU) peut traiter en une fois.\nSur un ordinateur 32 bits, le WORD est de 32, et sur 64 bits de 64. Donc le processeur peut traiter directement des tailles de WORD sans faire de decoupage ou autres.\nEn x86, c’est un peu different un WORD est historiquement de 16 bits, un DWORD de 32 bits et un QWORD de 64 bits pour des raisons historique et de compatibilite avec intel.",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+		    "id":"056",
+    		"question": "De quoi est compose le CPU ? (juste tout les elements)",
+    		"questionImage": "",
+		"answer": "Pour le contrôle & guidage avec le CU (Control Unit), PC (Program Counter), IR (Instruction Register), Branch Predictor\nPour le calcul / exécution avec l’ALU (Arithmetic Logic Unit), FPU (Floating Point Unit) et Unités Vectorielles (SIMD)\nPour le stockage temporaire on a les Registres Généraux, Registres Spéciaux (dont le PC et l’IR)\nPour la gestion Mémoire & Caches on retrouve les Caches L1 / L2 / L3, le MMU (Memory Management Unit), le TLB (Translation Lookaside Buffer)\nPour la communication on a les Bus internes (Données, Adresses, Contrôle)",
+    		"answerImage": "",
+    		"tags": ["CS"]
+  },
+  {
+		    "id":"057",
+		    "question": "Dans le contexte du CPU / compilateur c’est quoi l’inlining et outlining ?",
+		    "questionImage": "",
+		    "answer": "Le compilateur essaie de produire une code optimise pour le CPU. Pour ca il peut etre amenner a decide (en fonction des flags d’optimisation) de faire de l’inlining.\nL’inlining c’est le fait de mettre des fonctions directement a l’interieur du corps d’une autre fonctions. Pour permettre de produire une code machine / assembly plus optimise, qui ne va pas chercher a utiliser la stack et a faire des operations en trop.\nCependant, il ne peut pas le faire tout le temps et du coup fait de l’outlining.\nL’outlining consiste donc a juste extraire des bouts du code pour les mettres dans des fonctions a part.\nPar exemple du code qui ne s’execute pas toujours.",
+		    "answerImage": "",
+		    "tags": ["CS"]
+  },
+  {
+		    "id":"058",
+		    "question": "sur l’assembly x86 c’est quoi la difference entre la notation Intel et AT&T ?",
+		    "questionImage": "",
+		    "answer": "La syntaxe est differente, plusieurs points de difference ;\nLa difference majeur, avec Intel le premier operand est la destination et le second la source, tandis que c’est l’inverse avec AT&T.\nIntel a plus une logique de programmation int a = value;\nAutre point important on va avoir des signes % avec AT&T qu’on aura pas avec Intel.\n Il existe d’autres differences qui font qu’on prefere Intel le plus souvent a AT&T.",
+		    "answerImage": "",
+		    "tags": ["CS"]
+  },
+  {
+		    "id":"059",
+		    "question": "c’est quoi l’outil NASM pour ecrire de l’assembly ? et FASM ? (et les diff en general)",
+		    "questionImage": "",
+		    "answer": "NASM = Netwide Assembler\nFASM = Flat Assembler\nSont des outils, des assembleurs qui nous permettent de manier des code en assembly et de les transformer en object files avant le passage du linker.\nFASM est tres rapide car ecrit en assembleur\nNASM et FASM ont plusieurs differences de syntax\nFASM integre un linker que NASM n’a pas.\nLes deux visent a proposer une alternative pour GAS pour Unix\\Windows et la syntaxe AT&T qu’il utilise",
+		    "answerImage": "",
+		    "tags": ["CS"]
+  }
 ]
