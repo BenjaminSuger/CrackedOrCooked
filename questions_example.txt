@@ -1,0 +1,34 @@
+@cpp
+Les differents type de famille de container en C++ ?
+En C++ la STL a plusieurs types de famille de container ;
+Sequence containers ; structure de donnees lineaire comme les vectors, array,  list et forward list.
+Associative containers ; structure de donnees ordonnees. On parle des sets et des maps
+Unordered Associative Containers; structure de donnees non ordonnees, on parle ici des unordered map et unordered set
+Adapters containers; c’est une interface differente qui utilise un container different en arriere plan, le plus souvent pour implementer une structure de donnee abstraite comme une stack ou une queue
+
+---
+
+@cpp
+en C++ qu’est ce que la rule of 5 ? et pourquoi on parle de ca ?
+Le regle des 5 “stipule” que si on doit definir une des 5 fonctions speciales membre ;copy constructor
+copy assignement operator
+destructor
+move constructor
+move assignement operator
+Alors on doit tous les ecrires nous memes. Pourquoi ?
+Parce que cela implique une gestion de la memoire d’une ressource en particulier (souvent un pointeur brut ou un fd) et on a donc a le gerer dans tous les cas de notre classe. En C++ moderne on favorise si possible la “rule of 0”
+
+---
+
+@cpp
+en C++ what is the rule of 0 ?
+En opposition a la “rule of five”, si possible on essaie de ne pas ecrire aucune des fonctions speciales membres
+On prefere l’utilisation des smart pointers et du concept d’ownership pour eviter ca, ce qui rend la creation et l’utilisation d’une classe moins “bug prone”
+
+---
+
+@cpp
+Quelle est la difference de comportement entre l’overflow d’un unsigned int et d’un signed int en C/C++ ?
+Question tres “entretien technique” like.
+La difference reside dans la norme / standard. Un unisgned int redemarre a 0 est c’est un comportement defini alors que pour un signed int c’est un UB (Undefined Behaviors).
+Cette difference a une reel implication sur l’optimisation, un signed int qui n’overflow pas dans la logique du compilateur car UB lui permet de faire des optimisations en assembly
