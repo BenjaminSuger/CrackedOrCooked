@@ -104,6 +104,10 @@ function toggleDeck(file) {
 
   console.log("SELECTED DECKS:", [...selectedDecks]);
 
+  // Changer la selection relance sur les cartes jamais repondues,
+  // sinon un "cooked" en cours masquerait les nouvelles cartes
+  mode = "new";
+
   filterAndStart();
 }
 
@@ -187,7 +191,30 @@ function showFinished() {
     html += "<p>🔥 Tout est cracked sur les decks sélectionnés.</p>";
   }
 
+  html += `
+    <button onclick="resetSelectedDecks()">↺ Rejouer les decks sélectionnés</button>
+  `;
+
   document.getElementById("card-container").innerHTML = html;
+}
+
+// Efface la progression des decks coches uniquement, puis relance
+function resetSelectedDecks() {
+  const confirmReset = confirm("Reset la progression des decks sélectionnés ?");
+  if (!confirmReset) return;
+
+  const prefixes = [...selectedDecks].map(f => f.replace(/\.json$/, "") + ":");
+
+  Object.keys(progress).forEach(key => {
+    if (prefixes.some(p => key.startsWith(p))) {
+      delete progress[key];
+    }
+  });
+
+  saveState();
+
+  mode = "new";
+  filterAndStart();
 }
 
 function replayCooked() {
