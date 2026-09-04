@@ -2,17 +2,40 @@ let allCards = [];
 let filteredCards = [];
 let queue = [];
 let currentIndex = 0;
-let progress = JSON.parse(localStorage.getItem("progress")) || {};
+
+// Progression persistante (localStorage), cle = "deck:id" (ex: "python:001")
+let progress = loadProgress();
+
+// "new" : cartes jamais repondues | "cooked" : rejouer les cartes ratees
+let mode = "new";
 
 let selectedDecks = new Set();
 
-let sessionStats = {
-  cracked: 0,
-  cooked: 0,
-  total: 0
-};
-
 init();
+
+function loadProgress() {
+  let saved = {};
+  try {
+    saved = JSON.parse(localStorage.getItem("progress")) || {};
+  } catch (e) {
+    saved = {};
+  }
+
+  // Ancien format (cle = id seul) : ignore, il n'etait pas unique entre decks
+  const cleaned = {};
+  Object.keys(saved).forEach(k => {
+    if (k.includes(":")) cleaned[k] = saved[k];
+  });
+
+  // Ancienne cle de position, plus utilisee
+  localStorage.removeItem("currentIndex");
+
+  return cleaned;
+}
+
+function cardKey(card) {
+  return card.source.replace(/\.json$/, "") + ":" + card.id;
+}
 
 async function init() {
   try {
@@ -81,6 +104,10 @@ function toggleDeck(file) {
 
   console.log("SELECTED DECKS:", [...selectedDecks]);
 
+  // Changer la selection relance sur les cartes jamais repondues,
+  // sinon un "cooked" en cours masquerait les nouvelles cartes
+  mode = "new";
+
   filterAndStart();
 }
 
@@ -92,26 +119,36 @@ function filterAndStart() {
   console.log("FILTERED CARDS:", filteredCards);
 
   if (filteredCards.length === 0) {
+    document.getElementById("progress").textContent = "";
     document.getElementById("card-container").innerHTML =
       "<p style='color:red'>⚠️ Aucune carte dans les decks sélectionnés</p>";
+    updateStats();
     return;
   }
 
   setupQueue();
   currentIndex = 0;
   showCard();
+  updateStats();
 }
 
 function setupQueue() {
-  queue = [...filteredCards].sort(() => Math.random() - 0.5);
+  let pool;
+
+  if (mode === "cooked") {
+    pool = filteredCards.filter(c => progress[cardKey(c)] === "unknown");
+  } else {
+    pool = filteredCards.filter(c => !(cardKey(c) in progress));
+  }
+
+  queue = [...pool].sort(() => Math.random() - 0.5);
 }
 
 function showCard() {
   const card = queue[currentIndex];
 
   if (!card) {
-    document.getElementById("card-container").innerHTML =
-      "<p>🎉 Terminé !</p>";
+    showFinished();
     return;
   }
 
@@ -135,6 +172,58 @@ function showCard() {
   `;
 }
 
+function showFinished() {
+  const cookedCount = filteredCards.filter(
+    c => progress[cardKey(c)] === "unknown"
+  ).length;
+
+  document.getElementById("progress").textContent =
+    queue.length ? `${queue.length} / ${queue.length}` : "";
+
+  let html = "<p>🎉 Terminé !</p>";
+
+  if (cookedCount > 0) {
+    html += `
+      <p>${cookedCount} carte(s) cooked sur les decks sélectionnés.</p>
+      <button onclick="replayCooked()">☠️ Rejouer les cooked (${cookedCount})</button>
+    `;
+  } else {
+    html += "<p>🔥 Tout est cracked sur les decks sélectionnés.</p>";
+  }
+
+  html += `
+    <button onclick="resetSelectedDecks()">↺ Rejouer les decks sélectionnés</button>
+  `;
+
+  document.getElementById("card-container").innerHTML = html;
+}
+
+// Efface la progression des decks coches uniquement, puis relance
+function resetSelectedDecks() {
+  const confirmReset = confirm("Reset la progression des decks sélectionnés ?");
+  if (!confirmReset) return;
+
+  const prefixes = [...selectedDecks].map(f => f.replace(/\.json$/, "") + ":");
+
+  Object.keys(progress).forEach(key => {
+    if (prefixes.some(p => key.startsWith(p))) {
+      delete progress[key];
+    }
+  });
+
+  saveState();
+
+  mode = "new";
+  filterAndStart();
+}
+
+function replayCooked() {
+  mode = "cooked";
+  setupQueue();
+  currentIndex = 0;
+  showCard();
+}
+
 function showAnswer() {
   const answer = document.getElementById("answer");
   if (answer) answer.style.display = "block";
@@ -145,13 +234,9 @@ function showAnswer() {
 
 function markKnown(known) {
   const card = queue[currentIndex];
+  if (!card) return;
 
-  if (known) sessionStats.cracked++;
-  else sessionStats.cooked++;
-
-  sessionStats.total++;
-
-  progress[card.id] = known ? "known" : "unknown";
+  progress[cardKey(card)] = known ? "known" : "unknown";
 
   currentIndex++;
 
@@ -160,22 +245,30 @@ function markKnown(known) {
   updateStats();
 }
 
+// Compteurs calcules depuis la progression sauvegardee, sur les decks coches
 function updateStats() {
   const stats = document.getElementById("stats");
 
-  const total = sessionStats.total;
-  const cracked = sessionStats.cracked;
-  const cooked = sessionStats.cooked;
+  let cracked = 0;
+  let cooked = 0;
+
+  filteredCards.forEach(c => {
+    const state = progress[cardKey(c)];
+    if (state === "known") cracked++;
+    else if (state === "unknown") cooked++;
+  });
+
+  const total = cracked + cooked;
+  const remaining = filteredCards.length - total;
 
   const crackedPct = total ? Math.round((cracked / total) * 100) : 0;
   const cookedPct = total ? Math.round((cooked / total) * 100) : 0;
 
   stats.textContent =
-    `🔥 Cracked: ${cracked} (${crackedPct}%) | ☠️ Cooked: ${cooked} (${cookedPct}%)`;
+    `🔥 Cracked: ${cracked} (${crackedPct}%) | ☠️ Cooked: ${cooked} (${cookedPct}%) | 📚 Restantes: ${remaining}`;
 }
 
 function saveState() {
-  localStorage.setItem("currentIndex", currentIndex);
   localStorage.setItem("progress", JSON.stringify(progress));
 }
 
@@ -183,18 +276,10 @@ function resetProgress() {
   const confirmReset = confirm("Reset progression ?");
   if (!confirmReset) return;
 
-  localStorage.removeItem("currentIndex");
   localStorage.removeItem("progress");
 
-  currentIndex = 0;
   progress = {};
-
-  sessionStats = {
-	  cracked: 0,
-	  cooked: 0,
-	  total: 0
-	};
-  updateStats();
+  mode = "new";
 
   filterAndStart();
 }
