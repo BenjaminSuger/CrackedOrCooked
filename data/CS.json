@@ -665,5 +665,35 @@
     "tags": [
       "CS"
     ]
+  },
+  {
+    "id": "069",
+    "question": "comment fonctionne le bubble sort ?",
+    "questionImage": "",
+    "answer": "Un des tri les plus lents mais qu’on apprend pour apprendre la base des sorting algorithms.\n\nLa logique est la suivante, on parcours notre liste a trie, on commence par l’indice 1 (pas 0) pour regarder l’element precedent a trie. Si l’element est < a l’element precedent on peut alors faire un swap. On continue comme ca jusqu’a ce qu’on est tout trie\nDans l’implementation python qu’on voit ici on sait qu’on a remonte la valeur la plus importante au bon endroit (la bulle est remonte) et on continue de checker seulement si on fait des swaps.",
+    "answerImage": "./images/CS/bubble sort.png",
+    "tags": [
+      "CS"
+    ]
+  },
+  {
+    "id": "070",
+    "question": "Comment fonctionne le merge sort ?",
+    "questionImage": "",
+    "answer": "C’est une algo de tri de type divide and conquer, on va divise le groupe en 2 jusqu’a ce que ca ne soit plus possible avant de faire les comparaisons et tout ce de maniere recursive. Complexite de O(n log(n).\nA noter qu’avec l’absence du ≤ cette version en image plus bas n’est pas stable comme il faut",
+    "answerImage": "./images/CS/merge_sort.png",
+    "tags": [
+      "CS"
+    ]
+  },
+  {
+    "id": "071",
+    "question": "Comment fonctionne le insertion sort ?",
+    "questionImage": "",
+    "answer": "On part de l’index 1, et on compare toujours avec l’indice n - 1. En avancant on fait un parcours a chaque fois de chaque etape pour verifier si on est bien ordonne",
+    "answerImage": "./images/CS/insertion_sort.png",
+    "tags": [
+      "CS"
+    ]
   }
 ]

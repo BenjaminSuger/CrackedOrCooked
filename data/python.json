@@ -310,5 +310,65 @@
     "tags": [
       "python"
     ]
+  },
+  {
+    "id": "034",
+    "question": "que produit ce code en python ?",
+    "questionImage": "./images/python/infinitepython.png",
+    "answer": "il va produire;\n0\n1\n2\n3\n4\nIl ne produit pas de boucle infini, une boucle for en python agit comme un iterator et ne vas donc  pas reelement utiliser la valeur de i, elle va etre ecraser par la ou il passe. Meme si i est bien de type int. Il s’arrete a 4 car range exclut bien la derniere valeur. Si on voulait modifier et avoir le comportement de boucle infini, il faut utiliser iter()",
+    "answerImage": "",
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "id": "035",
+    "question": "que produit ce code en python avec type et isinstance ?",
+    "questionImage": "./images/python/typeVSisinstance.png",
+    "answer": "avec type on a bien un bool car type() renvoie vers l’objet bool et le is regarde bien l’adresse memoire. Par contre isinstance() on a bien un INT car les bool herite de int. donc il trouve bien int dans ce cas la. Sur  la seconde fonction, l’ordre du test change les choses",
+    "answerImage": "./images/python/TypeVSisinstanceAnswer.png",
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "id": "036",
+    "question": "Comment fonctionne le switch en python ?",
+    "questionImage": "",
+    "answer": "On parle de match case en python et cela prend la forme suivante (voir image), a noter la possibilite de faire des if qu’on peut aussi faire en OR avec ‘|’.\nLe cas par defaut est avec le caractere ‘_’",
+    "answerImage": "./images/python/switchPython.png",
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "id": "037",
+    "question": "comment on fait try except en python ?",
+    "questionImage": "",
+    "answer": "tres proche de ce qu’on connait en C++, pour lancer une exception on utilise le mot cle raise, on peut aussi faire un test avec le mot cle “assert” (mais autre question a ce sujet). Bien sur pas oblige de faire de raise, c’est une fonction / methode qui peut “throw” une exception. Pour “catch” l’erreur on utilise alors except pour catch. Il existe aussi un mot cle “finally” qui permet d’executer le code quoi qu’il arrive (erreur ou pas)",
+    "answerImage": "./images/python/TryExcept.png",
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "id": "038",
+    "question": "En python est ce que ce code peut pose probleme ?",
+    "questionImage": "./images/python/assertPythonQuestion.png",
+    "answer": "par defaut non mais en l’executant avec optimisation on perds alors le assert qui ne se declenche pas",
+    "answerImage": "./images/python/assertPythonReponse.png",
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "id": "039",
+    "question": "En python que fait l’operateur ‘//’ ?",
+    "questionImage": "",
+    "answer": "C’est une ‘floor division’, ca fait la division et ensuite on ensuite on a arrondi vers le bas.",
+    "answerImage": "./images/python/pythonFloorDivision.png",
+    "tags": [
+      "python"
+    ]
   }
 ]
