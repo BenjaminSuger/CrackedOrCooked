@@ -53,18 +53,18 @@ tags doit être présent pour bien rattacher au deck/thème
 il y a un script Python "CoC.py" qui permet de transformer facilement un fichier de question pour les ajouter a votre branche.
 
 Format de questions.txt:
-En tete de fichier (optionnel, avant le premier bloc) :
-    #newdeck <cle> <Nom affiche>
-        Cree data/<cle>.json, images/<cle>/ et la ligne dans data/index.json.
+En tete de fichier (optionnel, avant le premier bloc) :    
+    #newdeck <cle> <Nom affiche>      
+        Cree data/<cle>.json, images/<cle>/ et la ligne dans data/index.json.      
 
-Blocs separes par une ligne composee uniquement de tirets (3 minimum) :
-    @<deck>                 obligatoire, cle du deck (ex: cpp, python, git, CS)
-    @qimg <chemin>          optionnel, image de la question
-    @aimg <chemin>          optionnel, image de la reponse
-    Question sur une ligne
-    Reponse sur les lignes suivantes (les retours a la ligne sont conserves)
+Blocs separes par une ligne composee uniquement de tirets (3 minimum) :    
+    @<deck>                 obligatoire, cle du deck (ex: cpp, python, git, CS)    
+    @qimg <chemin>          optionnel, image de la question    
+    @aimg <chemin>          optionnel, image de la reponse    
+    Question sur une ligne    
+    Reponse sur les lignes suivantes (les retours a la ligne sont conserves)      
 
-Le chemin d'image est ecrit tel quel dans le JSON. Un simple nom de fichier
+Le chemin d'image est ecrit tel quel dans le JSON. Un simple nom de fichier  
 sans "/" est resolu en images/<deck>/<nom>. Le fichier doit exister.
 
 Tout ou rien : si un seul bloc est invalide, rien n'est ecrit.
