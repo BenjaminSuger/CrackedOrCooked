@@ -240,5 +240,75 @@
     "tags": [
       "python"
     ]
+  },
+  {
+    "id": "027",
+    "question": "en python qu’est ce qui est mutable si on le passe en argument d’une fonction ?",
+    "questionImage": "",
+    "answer": "Pour detaille, la question est de savoir si l’objet est modifie dans la fonction ca la modifie.\nCela arrive sur ;\nLes list\nLes sets\nLes dicts\nLes objets perso",
+    "answerImage": "",
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "id": "028",
+    "question": "c’est quoi les dunder methods ?",
+    "questionImage": "",
+    "answer": "dunder pour double underscore, qu’on met a l’avant et a l’arriere comme ca ; __init__\nOn appelle ca des methodes magiques car elles ne sont pas appeller manuellement la plupart du temps mais elle s’utilisent implicitement.Dans des classes on peut definir nous meme un “<” “>” “≤” avec des dunders.\nPour presques tous les objets on a un dict de dunder qu’on peut consulter avec dir() ou vars(), on favorise le plus souvent dir() au lieu de var() car var() peut fail pour les objets qui n’ont pas de methode",
+    "answerImage": "",
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "id": "029",
+    "question": "A quoi sert dans une classe le dunder __slot__ ?",
+    "questionImage": "",
+    "answer": "il sert a donner exactement a la classe des dunder precis, on limite ceux qui pourrait etre cree automatiquement par defaut. Ca presente un avantage de taille sur l’objet et de maitrise sur ce qui est possible avec un objet.",
+    "answerImage": "",
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "id": "030",
+    "question": "En python c’est quoi un generator ?",
+    "questionImage": "",
+    "answer": "Les generateurs c’est des fonctions qui peuvent faire des pauses et reprennent leurs execution plus tard. On cree un generateur en utilisant un mot cle yield a la place de return",
+    "answerImage": "",
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "id": "031",
+    "question": "En python c’est quoi le mot cle yield ? et comment ca marche ?",
+    "questionImage": "",
+    "answer": "Le mot cle yield permet de cree des generators, des fonctions qui peuvent faire des pauses dans leurs executions et rendre la main a l’appellant.\nUne fonction qui utilise yield retourn un generator object, c’est un iterator. Ca a l’avantage de pouvoir faire des fonctions qui ne calcul pas tout d’un coup et qui cree un nouvelle objet mais c’est simplement a chaque avance qu’on va avoir la suite.\nPour avancer on doit utiliser next() qui permet d’appeler encore une fois le generator qui avance\nLa fonction comme filter() fonctionne comme ca",
+    "answerImage": "",
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "id": "032",
+    "question": "En python que donne l’operation “1 - - - - 1 ” ?",
+    "questionImage": "",
+    "answer": "Le resultat est 2, il traite les “-” comme atoi ⇒ ca inverse le signe",
+    "answerImage": "",
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "id": "033",
+    "question": "En python, j’ai 2 projets qui utilise numpy mais chacun a une version differente, comment je gere ca ?",
+    "questionImage": "",
+    "answer": "Grace au venv (virtual environnement). Un venv est une maniere de lancer un projet avec ses dependances sans probleme. Pour cree un venv on fait la commande “python3 -m venv .venv” ce qui va cree un dossier .venv. On le lance avec la commande “source .venv/bin/activate”. Une fois dedans on peut installer ce qu’il faut avec la bonne version avec pip install. On peut aussi cree un requirements.txt pour d’autres utilisateurs avec la commande “pip freeze > requirements.txt”. Pour sortir de ce venv et allez ailleurs on fait “deactivate”.",
+    "answerImage": "",
+    "tags": [
+      "python"
+    ]
   }
 ]
